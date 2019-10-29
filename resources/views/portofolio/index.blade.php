@@ -4,7 +4,7 @@
 	@if(count($portofolio)>0)             
 		@foreach ($portofolio as $portofolio)                
 		<div class="well">                
-			<h3><a href="/Portofolio/{{$portofolio->id}}">
+			<h3><a href="portofolio/{{$portofolio->id}}">
 			{{$portofolio->title}}</a></h3>                    
 			<small>Tanggal: 
 			{{$portofolio->created_at}}</small>                

@@ -15,4 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::resource('portofolio','PortofoliosController');
+#Route::get('portofolio/{id}', 'PortofoliosController@show');
