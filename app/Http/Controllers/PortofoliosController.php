@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Portofolio;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class PortofoliosController extends Controller
 {
@@ -16,7 +17,7 @@ class PortofoliosController extends Controller
     {
         $data = array(
             'id' => "portofolio",
-            'portofolio' => Portofolio::all()
+            'portofolio' => Portofolio::orderBy('created_at','desc')->paginate(5)
         );
 
         return view('portofolio.index')->with($data);
