@@ -16,20 +16,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 Route::resource('portofolio','PortofoliosController');
-Route::get('portofolio/{id}', 'PortofoliosController@show');
-Route::get('portofolio/create', 'PortofoliosController@create');
-
-
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::resource('siswa','siswaController');
 
 

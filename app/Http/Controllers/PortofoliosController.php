@@ -82,7 +82,12 @@ class PortofoliosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = array(
+            'pageid'=>"portofolio",
+            'portofolio'=>Portofolio::find($id)
+        );
+
+        return view('portofolio.edit')->with($data);
     }
 
     /**
@@ -94,7 +99,18 @@ class PortofoliosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required',
+            'desc' => 'required'
+        ]);
+
+        // Membuat object dari Model Post
+        $portofolio = Portofolio::find($id); 
+        $portofolio->title = $request->input('title');
+        $portofolio->desc = $request->input('desc');
+        $portofolio->save();
+
+        return redirect('/portofolio')->with('success', 'Data telah diubah.');
     }
 
     /**
@@ -108,5 +124,5 @@ class PortofoliosController extends Controller
         $post->delete();
         return redirect('/portofolio')->with('success', 
             'Data telah dihapus.'); 
-        }
     }
+}

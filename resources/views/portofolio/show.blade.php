@@ -5,7 +5,7 @@
 <h1>{{$portofolio->title}}</h1>
 <small>Tanggal : {{$portofolio->created_at}}</small>
 <p>{!!$portofolio->desc!!}</p>
-
+<a href="{{$portofolio->id}}/edit" class="btn btn-primary" role="button">Edit</a>
 {!! Form::open(['action' => ['PortofoliosController@destroy', 
 		          $portofolio->id],'method' => 'POST', 
 		          'class' => 'float-right']) !!}
