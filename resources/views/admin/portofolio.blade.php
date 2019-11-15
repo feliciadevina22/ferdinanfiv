@@ -206,7 +206,7 @@
                     </center>
                     <div>
                         
-                          <a href="{{$portofolio[1]->id}}/edit" class="btn btn-primary" role="button">Edit</a>
+                          <a href="adminportofolio/{{$p->id}}/edit" class="btn btn-primary" role="button">Edit</a>
                         
                           {!! Form::open(['action' => ['adminPortofolioController@destroy', 
                           $p->id],'method' => 'POST', 

@@ -80,7 +80,12 @@ class adminPortofolioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = array(
+            'pageid'=>"portofolio",
+            'portofolio'=>Portofolio::find($id)
+        );
+
+        return view('admin.portofolioEdit')->with($data);
     }
 
     /**
@@ -92,7 +97,18 @@ class adminPortofolioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => '',
+            'desc' => ''
+        ]);
+
+        // Membuat object dari Model Post
+        $portofolio = Portofolio::find($id); 
+        $portofolio->title = $request->input('title');
+        $portofolio->desc = $request->input('desc');
+        $portofolio->save();
+
+        return redirect('/adminportofolio')->with('success', 'Data telah diubah.');
     }
 
     /**

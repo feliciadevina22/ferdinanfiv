@@ -172,17 +172,17 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Add Portofolio</h1>
+            <h1 class="h3 mb-0 text-gray-800">Edit Portofolio</h1>
             <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
           </div>
-          @include('inc.messages')
+          <!-- @include('inc.messages') -->
           <!-- Content Row -->
           <!-- <div class="row"> -->
             <br>
-            {!! Form::open(['action' => 'adminPortofolioController@store', 'method' => 'POST']) !!}
+            {!! Form::open(['action' => ['adminPortofolioController@update', $portofolio->id], 'method' => 'POST']) !!}
             <div class="form-group">
               {{Form::label('title', 'Title')}}
-              {{Form::text('title', '', 
+              {{Form::text('title', $portofolio->title, 
               ['class' => 'form-control', 
               'placeholder' => 'Title'])}}
             </div> 
@@ -190,90 +190,92 @@
             <div class="form-group">
               {{Form::label('desc', 'Description')}}
               <br>
-              {{Form::textarea('desc', '', 
-              ['class' => 'form-control', 
+              {{Form::textarea('desc', $portofolio->desc, 
+              ['class' => 'ckeditor', 
               'placeholder' => 'Description'])}}
               <br>
-              {{Form::submit('Save', ['class'=>'btn btn-primary'])}}
+              {{Form::hidden('_method','PUT')}}
+
+              {{Form::submit('Simpan', ['class'=>'btn btn-primary'])}}
             </div> 
             {!! Form::close() !!}
 
 
 
-          <!-- </div> -->
+            <!-- </div> -->
 
-          <div class="row">
-
-
+            <div class="row">
 
 
+
+
+
+            </div>
+            <!-- /.container-fluid -->
 
           </div>
-          <!-- /.container-fluid -->
+          <!-- End of Main Content -->
+
+          <!-- Footer -->
+          <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+              <div class="copyright text-center my-auto">
+                <span>FERDINANFIV 2019</span>
+              </div>
+            </div>
+          </footer>
+          <!-- End of Footer -->
 
         </div>
-        <!-- End of Main Content -->
+        <!-- End of Content Wrapper -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-          <div class="container my-auto">
-            <div class="copyright text-center my-auto">
-              <span>FERDINANFIV 2019</span>
+      </div>
+      <!-- End of Page Wrapper -->
+
+      <a href="adminportofolio/create">
+        <button class="rounded-circle float-right btn-primary" style="position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;" >+</button>
+      </a>
+
+      <!-- Logout Modal-->
+      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+              <a class="btn btn-primary" href="login.html">Logout</a>
             </div>
           </div>
-        </footer>
-        <!-- End of Footer -->
-
-      </div>
-      <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <a href="adminportofolio/create">
-      <button class="rounded-circle float-right btn-primary" style="position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;" >+</button>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">×</span>
-            </button>
-          </div>
-          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="login.html">Logout</a>
-          </div>
         </div>
       </div>
-    </div>
 
-    <!-- Bootstrap core JavaScript-->
+      <!-- Bootstrap core JavaScript-->
 
-    <script src="{{asset('/js/jquery/jquery.min.js')}}"></script>
-    <script src="{{asset('/js/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+      <script src="{{asset('/js/jquery/jquery.min.js')}}"></script>
+      <script src="{{asset('/js/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="{{asset('/js/jquery-easing/jquery.easing.min.js')}}"></script>
+      <!-- Core plugin JavaScript-->
+      <script src="{{asset('/js/jquery-easing/jquery.easing.min.js')}}"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="{{asset('/js/sb-admin-2.min.js')}}"></script>
+      <!-- Custom scripts for all pages-->
+      <script src="{{asset('/js/sb-admin-2.min.js')}}"></script>
 
-    <!-- Page level plugins -->
-    <!-- <script src="{{asset('/js/chart.js/Chart.min.js')}}"></script> -->
+      <!-- Page level plugins -->
+      <!-- <script src="{{asset('/js/chart.js/Chart.min.js')}}"></script> -->
 
-    <!-- Page level custom scripts -->
-    <script src="{{asset('/js/demo/chart-area-demo.js')}}"></script>
-    <script src="{{asset('/js/demo/chart-pie-demo.js')}}"></script>
+      <!-- Page level custom scripts -->
+      <script src="{{asset('/js/demo/chart-area-demo.js')}}"></script>
+      <script src="{{asset('/js/demo/chart-pie-demo.js')}}"></script>
 
-    <script src="{{asset('/js/app.js')}}"></script>
-    <script src="{{asset('/js/fontawesome/fontawesome.js')}}"></script>
+      <script src="{{asset('/js/app.js')}}"></script>
+      <script src="{{asset('/js/fontawesome/fontawesome.js')}}"></script>
 
-  </body>
+    </body>
 
-  </html>
+    </html>

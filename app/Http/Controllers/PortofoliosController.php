@@ -120,8 +120,8 @@ class PortofoliosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
-        $post = Portofolio::find($id); 
-        $post->delete();
+        $portofolio = Portofolio::find($id); 
+        $portofolio->delete();
         return redirect('/portofolio')->with('success', 
             'Data telah dihapus.'); 
     }
