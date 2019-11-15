@@ -16,6 +16,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('admin','adminDashboardController');
+// Route::resource('admin/portofolio','adminPortofolioController');
+Route::resource('adminportofolio','adminPortofolioController');
+
+
 Route::resource('portofolio','PortofoliosController');
 
 Route::get('/home', 'HomeController@index')->name('home');
