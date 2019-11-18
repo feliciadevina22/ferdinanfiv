@@ -59,8 +59,6 @@ class adminPortofolioController extends Controller
         $filenameSimpan = $filename.'_'.time().'.'.$extension;
         $path = $request->file('picture')->storeAs('public/portofolio_image', $filenameSimpan);
         $portofolio->pic = $request->input('picture');
-    }else{
-        $filenameSimpan = "noimage.jpg";
     }
     $portofolio->pic = $filenameSimpan;
 
@@ -153,9 +151,9 @@ class adminPortofolioController extends Controller
     {
         $portofolio = Portofolio::find($id);
         $path = 'storage/portofolio_image/'.$portofolio->pic;
-        if ($portofolio->pic != 'noimage.jpg') {
-            unlink($path);
-        }
+        
+        unlink($path);
+        
         $portofolio->delete();
         return redirect('/adminportofolio');
     }
