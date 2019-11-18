@@ -8,7 +8,7 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-  <link href="{{ asset('/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
 
     <!-- Styles -->
@@ -75,10 +75,10 @@
         </div>
         <div class="top-right links">
             <a href="{{ url('/') }}">Home</a>
-                <a href="#">About</a>
-                <a href="portofolio">Portofolio</a>
-                <a href="#">Store</a>
-                <a href="#">Contact</a>
+            <a href="#">About</a>
+            <a href="{{ url('portofolio') }}">Portofolio</a>
+            <a href="#">Store</a>
+            <a href="#">Contact</a>
             @auth
             <a href="{{ url('/home') }}">Home</a>
             @else
@@ -94,7 +94,7 @@
 
         <div class="container-fluid">
 
-          
+
 
           <!-- Content Row -->
           <div class="row">
@@ -108,36 +108,32 @@
 
                 <div class="card-body">
                   <center>
-                    <img src="https://image.freepik.com/free-photo/scottish-fold-cat-blue-surface_23-2148181678.jpg" width="300">
-                  </center>
-                  
-                  <br>
-                  <div class="card-header py-3">
+                    <img src="storage/portofolio_image/{{$p->pic}}" style="max-height: 200px;">  
+                </center>
+
+                <br>
+
+                <a href="portofolio/{{$p->id}}" style="text-decoration: none;">
+                   <div class="card-header py-3">
                     <center>
-
-                      <h6 class="m-0 font-weight-bold text-primary">{{$p->title}}</h6>
-
-                      <br>
-                      <h10>{{$p->desc}}</h10>
-                      <br>
-                      <br>
-                      
-                      
+                        <h6 class="m-0 font-weight-bold text-primary">{{$p->title}}</h6>
                     </center>
                     
-                  </div>
-
-                </div>
-              </div>
-            </div>
-            @endforeach
-            @endif
-          </div>
-
+                </div> 
+            </a>
 
 
         </div>
-
     </div>
+</div>
+@endforeach
+@endif
+</div>
+
+
+
+</div>
+
+</div>
 </body>
 </html>

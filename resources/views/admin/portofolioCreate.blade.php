@@ -49,7 +49,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="/ferdinanfiv/public/admin">
+        <a class="nav-link" href="{{url('admin')}}">
           <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
           <span>Dashboard</span></a>
         </li>
@@ -64,7 +64,7 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item active">
-          <a class="nav-link collapsed" href="/ferdinanfiv/public/adminportofolio" data-toggle="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <a class="nav-link collapsed" href="{{url('adminportofolio')}}" data-toggle="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <!-- <i class="fas fa-fw fa-cog"></i> -->
             <span>Portofolio</span>
           </a>
@@ -179,7 +179,11 @@
           <!-- Content Row -->
           <!-- <div class="row"> -->
             <br>
-            {!! Form::open(['action' => 'adminPortofolioController@store', 'method' => 'POST']) !!}
+            {!! Form::open([
+              'action' => 'adminPortofolioController@store', 
+              'method' => 'POST',
+              'enctype'=>'multipart/form-data'
+              ]) !!}
             <div class="form-group">
               {{Form::label('title', 'Title')}}
               {{Form::text('title', '', 
@@ -188,14 +192,19 @@
             </div> 
 
             <div class="form-group">
-              {{Form::label('desc', 'Description')}}
+              {{Form::label('description', 'Description')}}
               <br>
-              {{Form::textarea('desc', '', 
+              {{Form::textarea('description', '', 
               ['class' => 'form-control', 
               'placeholder' => 'Description'])}}
-              <br>
-              {{Form::submit('Save', ['class'=>'btn btn-primary'])}}
+              
             </div> 
+
+            <div class="form-group">
+              {{Form::file('picture')}}
+              <br><br>
+              {{Form::submit('Save', ['class'=>'btn btn-primary'])}}
+            </div>
             {!! Form::close() !!}
 
 

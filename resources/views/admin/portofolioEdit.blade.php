@@ -49,7 +49,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="/ferdinanfiv/public/admin">
+        <a class="nav-link" href="{{url('admin')}}">
           <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
           <span>Dashboard</span></a>
         </li>
@@ -64,7 +64,7 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item active">
-          <a class="nav-link collapsed" href="/ferdinanfiv/public/adminportofolio" data-toggle="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <a class="nav-link collapsed" href="{{url('adminportofolio')}}" data-toggle="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <!-- <i class="fas fa-fw fa-cog"></i> -->
             <span>Portofolio</span>
           </a>

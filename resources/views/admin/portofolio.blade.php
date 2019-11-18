@@ -49,7 +49,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="admin">
+        <a class="nav-link" href="{{url('admin')}}">
           <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
           <span>Dashboard</span></a>
         </li>
@@ -64,7 +64,7 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item active">
-          <a class="nav-link collapsed" href="adminportofolio" data-toggle="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <a class="nav-link collapsed" href="{{url('adminportofolio')}}" data-toggle="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <!-- <i class="fas fa-fw fa-cog"></i> -->
             <span>Portofolio</span>
           </a>
@@ -188,7 +188,7 @@
 
                 <div class="card-body">
                   <center>
-                    <img src="https://image.freepik.com/free-photo/scottish-fold-cat-blue-surface_23-2148181678.jpg" width="300">
+                    <img src="storage/portofolio_image/{{$p->pic}}" style="max-height: 200px;">  
                   </center>
                   
                   <br>
@@ -205,19 +205,18 @@
                       
                     </center>
                     <div>
-                        
-                          <a href="adminportofolio/{{$p->id}}/edit" class="btn btn-primary" role="button">Edit</a>
-                        
-                          {!! Form::open(['action' => ['adminPortofolioController@destroy', 
-                          $p->id],'method' => 'POST', 
-                          'class' => 'float-right']) !!}
-                          {{Form::hidden('_method', 'DELETE')}}
-                          {{Form::submit("Delete", ['class'=>'btn btn-danger'])}} 
-                          {!! Form::close() !!}
-                        
-                        
+                      <a href="adminportofolio/{{$p->id}}/edit" class="btn btn-primary" role="button">Edit</a>
 
-                      </div>
+                      {!! Form::open(['action' => ['adminPortofolioController@destroy', 
+                      $p->id],'method' => 'POST', 
+                      'class' => 'float-right']) !!}
+                      {{Form::hidden('_method', 'DELETE')}}
+                      {{Form::submit("Delete", ['class'=>'btn btn-danger'])}} 
+                      {!! Form::close() !!}
+
+
+
+                    </div>
                   </div>
 
                 </div>
