@@ -5,6 +5,8 @@ use Illuminate\Http\Request;
 use App\Models\Portofolio;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+
 
 class PortofoliosController extends Controller
 {
@@ -30,7 +32,7 @@ class PortofoliosController extends Controller
      */
     public function create()
     {
-        return view("portofolio.create");
+        // return view("portofolio.create");
     }
 
     /**
@@ -87,7 +89,7 @@ class PortofoliosController extends Controller
             'portofolio'=>Portofolio::find($id)
         );
 
-        return view('portofolio.edit')->with($data);
+        //return view('portofolio.edit')->with($data);
     }
 
     /**
@@ -110,7 +112,7 @@ class PortofoliosController extends Controller
         $portofolio->desc = $request->input('desc');
         $portofolio->save();
 
-        return redirect('/portofolio')->with('success', 'Data telah diubah.');
+        //return redirect('/portofolio')->with('success', 'Data telah diubah.');
     }
 
     /**
@@ -120,9 +122,8 @@ class PortofoliosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
-        $post = Portofolio::find($id);
-        $post->delete();
-        return redirect('/portofolio')->with('success',
-            'Data telah dihapus.');
+        $portofolio = Portofolio::find($id); 
+        $portofolio->delete();
+        //return redirect('/portofolio')->with('success', 'Data telah dihapus.'); 
     }
 }

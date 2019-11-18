@@ -172,136 +172,115 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Portofolio</h1>
+            <h1 class="h3 mb-0 text-gray-800">Edit Portofolio</h1>
             <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
           </div>
-
+          @include('inc.messages')
           <!-- Content Row -->
-          <div class="row">
+          <!-- <div class="row"> -->
+            <br>
+            {!! Form::open(['action' => ['adminPortofolioController@update', $portofolio->id], 'method' => 'POST',
+            'enctype'=>'multipart/form-data']) !!}
+            <div class="form-group">
+              {{Form::label('title', 'Title')}}
+              {{Form::text('title', $portofolio->title, 
+              ['class' => 'form-control', 
+              'placeholder' => 'Title' ])}}
+            </div> 
 
-            <!-- First Column -->
-            @if(count($portofolio)>0)
-            @foreach ($portofolio as $p)
-            <div class="col-lg-4">
+            <div class="form-group">
+              {{Form::label('description', 'Description')}}
+              <br>
+              {{Form::textarea('description', $portofolio->desc, 
+              ['class' => 'form-control', 
+              'placeholder' => 'Description'])}}
+            </div> 
 
-              <div class="card shadow mb-4">
+            <div class="form-group">
+              {{Form::file('picture')}}
+              <br><br>
+              {{Form::hidden('_method','PUT')}}
 
-                <div class="card-body">
-                  <center>
-                    <img src="storage/portofolio_image/{{$p->pic}}" style="max-height: 200px;">  
-                  </center>
-                  
-                  <br>
-                  <div class="card-header py-3">
-                    <center>
-
-                      <h6 class="m-0 font-weight-bold text-primary">{{$p->title}}</h6>
-
-                      <br>
-                      <h10>{{$p->desc}}</h10>
-                      <br>
-                      <br>
-                      
-                      
-                    </center>
-                    <div>
-                      <a href="adminportofolio/{{$p->id}}/edit" class="btn btn-primary" role="button">Edit</a>
-
-                      {!! Form::open(['action' => ['adminPortofolioController@destroy', 
-                      $p->id],'method' => 'POST', 
-                      'class' => 'float-right']) !!}
-                      {{Form::hidden('_method', 'DELETE')}}
-                      {{Form::submit("Delete", ['class'=>'btn btn-danger'])}} 
-                      {!! Form::close() !!}
+              {{Form::submit('Save', ['class'=>'btn btn-primary'])}}
+            </div> 
+            {!! Form::close() !!}
 
 
 
-                    </div>
-                  </div>
+            <!-- </div> -->
 
-                </div>
+            <div class="row">
+
+
+
+
+
+            </div>
+            <!-- /.container-fluid -->
+
+          </div>
+          <!-- End of Main Content -->
+
+          <!-- Footer -->
+          <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+              <div class="copyright text-center my-auto">
+                <span>FERDINANFIV 2019</span>
               </div>
             </div>
-            @endforeach
-            @endif
-          </div>
-
-
+          </footer>
+          <!-- End of Footer -->
 
         </div>
-
-        <div class="row">
-
-
-
-
-
-        </div>
-        <!-- /.container-fluid -->
+        <!-- End of Content Wrapper -->
 
       </div>
-      <!-- End of Main Content -->
+      <!-- End of Page Wrapper -->
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>FERDINANFIV 2019</span>
+      <a href="adminportofolio/create">
+        <button class="rounded-circle float-right btn-primary" style="position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;" >+</button>
+      </a>
+
+      <!-- Logout Modal-->
+      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+              <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
           </div>
         </div>
-      </footer>
-      <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <a href="adminportofolio/create">
-    <button class="rounded-circle float-right btn-primary" style="position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;" >+</button>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Bootstrap core JavaScript-->
+      <!-- Bootstrap core JavaScript-->
 
-  <script src="{{asset('/js/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('/js/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+      <script src="{{asset('/js/jquery/jquery.min.js')}}"></script>
+      <script src="{{asset('/js/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
-  <!-- Core plugin JavaScript-->
-  <script src="{{asset('/js/jquery-easing/jquery.easing.min.js')}}"></script>
+      <!-- Core plugin JavaScript-->
+      <script src="{{asset('/js/jquery-easing/jquery.easing.min.js')}}"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="{{asset('/js/sb-admin-2.min.js')}}"></script>
+      <!-- Custom scripts for all pages-->
+      <script src="{{asset('/js/sb-admin-2.min.js')}}"></script>
 
-  <!-- Page level plugins -->
-  <!-- <script src="{{asset('/js/chart.js/Chart.min.js')}}"></script> -->
+      <!-- Page level plugins -->
+      <!-- <script src="{{asset('/js/chart.js/Chart.min.js')}}"></script> -->
 
-  <!-- Page level custom scripts -->
-  <script src="{{asset('/js/demo/chart-area-demo.js')}}"></script>
-  <script src="{{asset('/js/demo/chart-pie-demo.js')}}"></script>
-  
-  <script src="{{asset('/js/app.js')}}"></script>
-  <script src="{{asset('/js/fontawesome/fontawesome.js')}}"></script>
+      <!-- Page level custom scripts -->
+      <script src="{{asset('/js/demo/chart-area-demo.js')}}"></script>
+      <script src="{{asset('/js/demo/chart-pie-demo.js')}}"></script>
 
-</body>
+      <script src="{{asset('/js/app.js')}}"></script>
+      <script src="{{asset('/js/fontawesome/fontawesome.js')}}"></script>
 
-</html>
+    </body>
+
+    </html>

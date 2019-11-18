@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Portofolio;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class adminPortofolioController extends Controller
 {
@@ -42,18 +43,30 @@ class adminPortofolioController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
-            'title' => 'required',
-            'desc' => 'required'
-        ]);
+        'title' => 'required',
+        'description' => 'required',
+        'picture' => 'image|required|max:1999'
+    ]);
 
         // Membuat object dari Model Post
-        $portofolio = new Portofolio; 
-        $portofolio->title = $request->input('title');
-        $portofolio->desc = $request->input('desc');
-        $portofolio->save();
-
-        return redirect('adminportofolio/create')->with('success', 'Data telah disimpan.');
+      $portofolio = new Portofolio; 
+      $portofolio->title = $request->input('title');
+      $portofolio->desc = $request->input('description');
+      if($request->hasFile('picture')){
+        $fileNameWithExt = $request->file('picture')->getClientOriginalName();
+        $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+        $extension = $request->file('picture')->getClientOriginalExtension();
+        $filenameSimpan = $filename.'_'.time().'.'.$extension;
+        $path = $request->file('picture')->storeAs('public/portofolio_image', $filenameSimpan);
+        $portofolio->pic = $request->input('picture');
     }
+    $portofolio->pic = $filenameSimpan;
+
+
+    $portofolio->save();
+
+    return redirect('adminportofolio/create')->with('success', 'Data telah disimpan.');
+}
 
     /**
      * Display the specified resource.
@@ -63,10 +76,11 @@ class adminPortofolioController extends Controller
      */
     public function show($id)
     {
-        // Membuat object dari Model Post
+        // Membuat object dari Model
         $portofolio = new Portofolio; 
         $portofolio->title = $request->input('title');
-        $portofolio->desc = $request->input('desc');
+        $portofolio->desc = $request->input('description');
+        $portofolio->pic = $request->input('picture');
         $portofolio->save();
 
         return redirect('/adminportofolio');
@@ -80,7 +94,12 @@ class adminPortofolioController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = array(
+            'pageid'=>"portofolio",
+            'portofolio'=>Portofolio::find($id)
+        );
+
+        return view('admin.portofolioEdit')->with($data);
     }
 
     /**
@@ -92,7 +111,34 @@ class adminPortofolioController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title' => '',
+            'description' => '',
+            'picture' => ''
+        ]);
+
+        // Membuat object dari Model Post
+        $portofolio = Portofolio::find($id); 
+        $portofolio->title = $request->input('title');
+        $portofolio->desc = $request->input('description');
+        $path = 'storage/portofolio_image/'.$portofolio->pic;
+        if($request->hasFile('picture')){
+            unlink($path);
+            $fileNameWithExt = $request->file('picture')->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $filenameSimpan = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('picture')->storeAs('public/portofolio_image', $filenameSimpan);
+            $portofolio->pic = $request->input('picture');
+        }else{
+            $filenameSimpan = $portofolio->pic;
+        }
+        $portofolio->pic = $filenameSimpan;
+
+
+        $portofolio->save();
+
+        return redirect('/adminportofolio')->with('success', 'Data telah diubah.');
     }
 
     /**
@@ -103,7 +149,11 @@ class adminPortofolioController extends Controller
      */
     public function destroy($id)
     {
-        $portofolio = Portofolio::find($id); 
+        $portofolio = Portofolio::find($id);
+        $path = 'storage/portofolio_image/'.$portofolio->pic;
+        
+        unlink($path);
+        
         $portofolio->delete();
         return redirect('/adminportofolio');
     }
