@@ -95,9 +95,11 @@
 		<div class="container-fluid">
 			<!-- Content Row -->
 			<div class="row">
-				<div style="margin: 20px;">
-					<img src="/ferdinanfiv/public/storage/portofolio_image/{{$portofolio->pic}}" style="max-height: 500px;">
-
+				<div  style="margin: 20px; max-width: 500px; width: 500px;">
+					<center>
+						<img src="/ferdinanfiv/public/storage/portofolio_image/{{$portofolio->pic}}" style="max-height: 500px; max-width: 100%;">
+					</center>
+					
 				</div>
 				<div style="margin: 50px;">
 					<h1>{{$portofolio->title}}</h1>
