@@ -123,7 +123,21 @@ class adminPortofolioController extends Controller
         $portofolio = Portofolio::find($id); 
         $portofolio->title = $request->input('title');
         $portofolio->desc = $request->input('description');
-        $portofolio->pic = $request->input('picture');
+        $path = 'storage/portofolio_image/'.$portofolio->pic;
+        if($request->hasFile('picture')){
+            unlink($path);
+            $fileNameWithExt = $request->file('picture')->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $filenameSimpan = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('picture')->storeAs('public/portofolio_image', $filenameSimpan);
+            $portofolio->pic = $request->input('picture');
+        }else{
+            $filenameSimpan = $portofolio->pic;
+        }
+        $portofolio->pic = $filenameSimpan;
+
+
         $portofolio->save();
 
         return redirect('/adminportofolio')->with('success', 'Data telah diubah.');

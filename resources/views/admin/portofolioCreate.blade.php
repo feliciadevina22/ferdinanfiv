@@ -197,7 +197,6 @@
               {{Form::textarea('description', '', 
               ['class' => 'form-control', 
               'placeholder' => 'Description'])}}
-              
             </div> 
 
             <div class="form-group">

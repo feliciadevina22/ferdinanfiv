@@ -175,28 +175,33 @@
             <h1 class="h3 mb-0 text-gray-800">Edit Portofolio</h1>
             <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
           </div>
-          <!-- @include('inc.messages') -->
+          @include('inc.messages')
           <!-- Content Row -->
           <!-- <div class="row"> -->
             <br>
-            {!! Form::open(['action' => ['adminPortofolioController@update', $portofolio->id], 'method' => 'POST']) !!}
+            {!! Form::open(['action' => ['adminPortofolioController@update', $portofolio->id], 'method' => 'POST',
+            'enctype'=>'multipart/form-data']) !!}
             <div class="form-group">
               {{Form::label('title', 'Title')}}
               {{Form::text('title', $portofolio->title, 
               ['class' => 'form-control', 
-              'placeholder' => 'Title'])}}
+              'placeholder' => 'Title' ])}}
             </div> 
 
             <div class="form-group">
-              {{Form::label('desc', 'Description')}}
+              {{Form::label('description', 'Description')}}
               <br>
-              {{Form::textarea('desc', $portofolio->desc, 
-              ['class' => 'ckeditor', 
+              {{Form::textarea('description', $portofolio->desc, 
+              ['class' => 'form-control', 
               'placeholder' => 'Description'])}}
-              <br>
+            </div> 
+
+            <div class="form-group">
+              {{Form::file('picture')}}
+              <br><br>
               {{Form::hidden('_method','PUT')}}
 
-              {{Form::submit('Simpan', ['class'=>'btn btn-primary'])}}
+              {{Form::submit('Save', ['class'=>'btn btn-primary'])}}
             </div> 
             {!! Form::close() !!}
 
