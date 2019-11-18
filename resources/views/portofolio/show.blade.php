@@ -101,7 +101,7 @@
 					</center>
 					
 				</div>
-				<div style="margin: 50px;">
+				<div style="margin: 50px; max-width: 800px;">
 					<h1>{{$portofolio->title}}</h1>
 					<br><br>
 					<h5>{!!$portofolio->desc!!}</h5>
