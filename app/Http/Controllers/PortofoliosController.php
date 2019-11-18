@@ -39,7 +39,7 @@ class PortofoliosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
+
     public function store(Request $request)
     {
         $this->validate($request, [
@@ -48,7 +48,7 @@ class PortofoliosController extends Controller
         ]);
 
         // Membuat object dari Model Post
-        $portofolio = new Portofolio; 
+        $portofolio = new Portofolio;
         $portofolio->title = $request->input('title');
         $portofolio->desc = $request->input('desc');
         $portofolio->save();
@@ -56,7 +56,7 @@ class PortofoliosController extends Controller
         return redirect('/portofolio/create')->with('success', 'Data telah disimpan.');
     }
 
-    
+
 
     /**
      * Display the specified resource.
@@ -105,7 +105,7 @@ class PortofoliosController extends Controller
         ]);
 
         // Membuat object dari Model Post
-        $portofolio = Portofolio::find($id); 
+        $portofolio = Portofolio::find($id);
         $portofolio->title = $request->input('title');
         $portofolio->desc = $request->input('desc');
         $portofolio->save();
@@ -120,9 +120,9 @@ class PortofoliosController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id){
-        $post = Portofolio::find($id); 
+        $post = Portofolio::find($id);
         $post->delete();
-        return redirect('/portofolio')->with('success', 
-            'Data telah dihapus.'); 
+        return redirect('/portofolio')->with('success',
+            'Data telah dihapus.');
     }
 }
