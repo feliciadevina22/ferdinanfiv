@@ -20,6 +20,7 @@ Route::resource('admin','adminDashboardController');
 // Route::resource('admin/portofolio','adminPortofolioController');
 Route::resource('adminportofolio','adminPortofolioController');
 
+Route::resource('adminprofile','adminProfileController');
 
 Route::resource('portofolio','PortofoliosController');
 
