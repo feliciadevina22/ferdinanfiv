@@ -108,7 +108,7 @@
 
                 <div class="card-body">
                   <center>
-                    <img src="storage/portofolio_image/{{$p->pic}}" style="max-height: 200px;">  
+                    <img src="storage/portofolio_image/{{$p->pic}}" style="max-height: 300px;">  
                 </center>
 
                 <br>
