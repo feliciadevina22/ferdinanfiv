@@ -78,7 +78,7 @@
             <a href="#">About</a>
             <a href="{{ url('portofolio') }}">Portofolio</a>
             <a href="#">Store</a>
-            <a href="#">Contact</a>
+            <a href="{{ url('profile') }}">Contact</a>
             @auth
             <a href="{{ url('/home') }}">Home</a>
             @else

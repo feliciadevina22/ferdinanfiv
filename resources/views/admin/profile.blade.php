@@ -12,7 +12,7 @@
   <title>FERDINANFIV Admin- PROFILE</title>
 
   <!-- Custom fonts for this template-->
-  <!-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css"> -->
+  <!-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">  -->
 
   <link href="{{ asset('/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -172,7 +172,7 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Portofolio</h1>
+            <h1 class="h3 mb-0 text-gray-800">Profile</h1>
             <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
           </div>
 
@@ -180,57 +180,34 @@
           <div class="row">
 
             <!-- First Column -->
-            <!-- @if(count($portofolio)>0) -->
-            <!-- @foreach ($portofolio as $p) -->
             <div class="col-lg-6">
-            <div class="col-lg-4">
+            <center>
+                <h4>Profile</h4>
+                <br>
 
-              <div class="card shadow mb-4">
+                <div> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/1200px-LINE_logo.svg.png" alt="Line" width="100"> </div>
+                
+                <p>ferdinanfiv</p>
+                <a href="adminprofile/edit" class="btn btn-primary" role="button">Edit</a>
 
-                <div class="card-body">
-                  <center>
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/1200px-LINE_logo.svg.png" width=100>
-                  </center>
-                  
-                  <br>
-                  <div class="card-header py-3">
-                    <center>
+                <br>
+                <br>
 
-                      <h6 class="m-0 font-weight-bold text-primary">{{$p->title}}</h6>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/1200px-LINE_logo.svg.png" alt="Line" width="100">
+                <p>ferdinanfiv</p>
 
-                      <br>
-                      <h10>{{$p->desc}}</h10>
-                      <br>
-                      <br>
-                      
-                      
-                    </center>
-                    <div>
-                        
-                          <a href="{{$portofolio[1]->id}}/edit" class="btn btn-primary" role="button">Edit</a>
-                        
-                          {!! Form::open(['action' => ['adminPortofolioController@destroy', 
-                          $p->id],'method' => 'POST', 
-                          'class' => 'float-right']) !!}
-                          {{Form::hidden('_method', 'DELETE')}}
-                          {{Form::submit("Delete", ['class'=>'btn btn-danger'])}} 
-                          {!! Form::close() !!}
-                        
-                        
-
-                      </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
+                <a href="adminprofile/edit" class="btn btn-primary" role="button">Edit</a>
+            </center>
+              
             </div>
             
             <div class="col-lg-6">
-            Lol
+            <center>
+                <h4>About</h4>
+                <br>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </center>
             </div>
-            <!-- @endforeach -->
-            <!-- @endif -->
           </div>
 
 

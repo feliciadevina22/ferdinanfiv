@@ -23,6 +23,7 @@ Route::resource('adminportofolio','adminPortofolioController');
 Route::resource('adminprofile','adminProfileController');
 
 Route::resource('portofolio','PortofoliosController');
+Route::resource('profile','ProfilesController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
