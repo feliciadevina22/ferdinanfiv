@@ -38,7 +38,25 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-   
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url('/')}}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('about')}}">about</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('store')}}">Store</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('portofolio')}}">Portofolio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url('contact')}}">Contact</a>
+        </li>
+      </ul>
+    </div>
   </nav>
 </header>
 
