@@ -78,7 +78,7 @@
         </div>
         <div class="top-right links">
             <a href="{{ url('/') }}">Home</a>
-            <a href="#">About</a>
+            <a href="{{ url('about') }}">About</a>
             <a href="{{ url('portofolio') }}">Portofolio</a>
             <a href="#">Store</a>
             <a href="{{ url('profile') }}">Contact</a>

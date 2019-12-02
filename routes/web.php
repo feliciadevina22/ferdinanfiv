@@ -24,6 +24,7 @@ Route::resource('adminprofile','adminProfileController');
 
 Route::resource('portofolio','PortofoliosController');
 Route::resource('profile','ProfilesController');
+Route::resource('about','AboutController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
