@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAdminProfilesTable extends Migration
+class CreateProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateAdminProfilesTable extends Migration
      */
     public function up()
     {
-        Schema::create('admin_profiles', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('instagram');
-            $table->string('line');
-            $table->string('line_qrcode');
-            $table->string('phone_number');
-            $table->string('email');
+            $table->string('pic');
+            $table->string('name');
+            $table->string('desc');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ class CreateAdminProfilesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('admin_profiles');
+        Schema::dropIfExists('profiles');
     }
 }

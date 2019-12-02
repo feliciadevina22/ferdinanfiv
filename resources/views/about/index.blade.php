@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Portfolio Template</title>
+  <title>About Template</title>
 
   <!-- mobile responsive meta -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -142,35 +142,22 @@
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h2 class="section-title">My Team</h2>
+        <h2 class="section-title">My Contact</h2>
       </div>
+
+
+      @foreach($profiles as $p)
       <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
         <div class="card text-center">
-          <img src="images/team/member-1.png" class="card-img-top">
+          <img src="{{$p->pic}}" class="card-img-top">
           <div class="card-body">
-            <h4 class="card-title">Jack Schenziwe</h4>
-            <p class="text-light font-secondary">Project Manager</p>
+            <h4 class="card-title">{{$p->name}}</h4>
+            <p class="text-light font-secondary">{{$p->desc}}</p>
           </div>
         </div>
       </div>
-      <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
-        <div class="card text-center">
-          <img src="images/team/member-2.png" class="card-img-top">
-          <div class="card-body">
-            <h4 class="card-title">Jack Schenziwe</h4>
-            <p class="text-light font-secondary">Project Manager</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
-        <div class="card text-center">
-          <img src="images/team/member-3.png" class="card-img-top">
-          <div class="card-body">
-            <h4 class="card-title">Jack Schenziwe</h4>
-            <p class="text-light font-secondary">Project Manager</p>
-          </div>
-        </div>
-      </div>
+      @endforeach
+
     </div>
   </div>
 </section>

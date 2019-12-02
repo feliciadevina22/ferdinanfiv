@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Portofolio;
+use App\Models\Profile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
@@ -17,77 +17,54 @@ class adminProfileController extends Controller
     public function index()
     {
         $data = array(
-            'id' => "portofolio",
-            'portofolio' => Portofolio::all()
+            'id' => "profiles",
         );
-        return view('admin.profile')->with($data);
+
+        $profiles = Profile::all();
+        // dd($data);
+        return view('admin.profile', compact('profiles'))->with($data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $data = array(
+            'pageid'=>"profile",
+            'profile'=>Profile::find($id)
+        );
+
+       
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'desc' => 'required'
+        ]);
+
+        // Membuat object dari Model Post
+        $profile = Profile::find($id);
+        $profile->name = $request->input('name');
+        $profile->desc = $request->input('desc');
+        $profile->save();
+
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        $portofolio = Portofolio::find($id); 
-        $portofolio->delete();
-        return redirect('/adminportofolio');
+        $profile = Profile::find($id); 
+        $profile->delete();
+        return redirect('/adminprofile');
     }
 }
