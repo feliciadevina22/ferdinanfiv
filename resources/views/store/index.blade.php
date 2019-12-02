@@ -104,27 +104,36 @@
     <div class="row shuffle-wrapper">
       @if(count($store)>0)
       @foreach ($store as $s)
-      <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;branding&quot;]">
-        <div class="position-relative rounded hover-wrapper">
-          <img src="storage/store_image/{{$s->pic}}" alt="store-image" class="img-fluid rounded w-100 d-block">
-          <div class="hover-overlay">
-            <div class="hover-content">
-              <a class="btn btn-light btn-sm" href="store/{{$s->id}}">Details</a>
-            </div>
-          </div>
-          
-        </div>
+      <div class="col-lg-3 col-6 mb-4 shuffle-item" data-groups="[&quot;branding&quot;]" style="box-shadow: 0px 1px 3px #909999; margin: 20px; padding: 15px;">
+        <div class="position-relative rounded hover-wrapper" style="">
 
+
+
+          <a class="" href="store/{{$s->id}}">
+            <img src="storage/store_image/{{$s->pic}}" alt="store-image" class="img-fluid rounded w-100 d-block">
+
+          </a>
+
+
+        </div>
+        <div style="text-align: center; font-family: century gothic;  max-height: 90px; padding-bottom: 20px;">
+          <br>
+          <b>
+            {{$s->title}}
+          </b>
+          <br><br>
+          IDR {{$s->price}}
+        </div>
+        
       </div>
+
       @endforeach
       @endif
-
     </div>
-  </div>
-</section>
-<!-- /portfolio -->
+  </section>
+  <!-- /portfolio -->
 
-<!-- clients -->
+  <!-- clients -->
 <!-- <section class="section bg-light">
   <div class="container">
     <div class="row">

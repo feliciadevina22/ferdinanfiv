@@ -65,7 +65,8 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-11 mx-auto">
-        <h1 class="text-white font-tertiary">Hi! I’m <br> Ferdinan <br> Graphic Illustrator </h1>
+        <h1 class="text-white font-tertiary">Hi! I’m <br> Ferdinan <br> I'm a Graphic Designer and Illustrator
+        </h1>
       </div>
     </div>
   </div>

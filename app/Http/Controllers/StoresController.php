@@ -46,13 +46,18 @@ class StoresController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'desc' => 'required'
+            'desc' => 'required',
+            'price' => 'required',
+            'stock' => 'required'
+
         ]);
 
         // Membuat object dari Model Post
         $store = new Store;
         $store->title = $request->input('title');
         $store->desc = $request->input('desc');
+        $store->price = $request->input('price');
+        $store->stock = $request->input('stock');
         $store->save();
 
         return redirect('/store/create')->with('success', 'Data telah disimpan.');
@@ -103,13 +108,18 @@ class StoresController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
-            'desc' => 'required'
+            'desc' => 'required',
+            'price' => 'required',
+            'stock' => 'required'
+
         ]);
 
         // Membuat object dari Model Post
         $store = Store::find($id);
         $store->title = $request->input('title');
         $store->desc = $request->input('desc');
+        $store->price = $request->input('price');
+        $store->stock = $request->input('stock');
         $store->save();
 
         //return redirect('/store')->with('success', 'Data telah diubah.');
