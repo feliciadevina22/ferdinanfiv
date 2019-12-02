@@ -48,7 +48,7 @@ class adminPortofolioController extends Controller
         'picture' => 'image|required|max:1999'
     ]);
 
-        // Membuat object dari Model Post
+        // Membuat object dari Model
       $portofolio = new Portofolio; 
       $portofolio->title = $request->input('title');
       $portofolio->desc = $request->input('description');

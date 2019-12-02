@@ -179,6 +179,8 @@
           <!-- Content Row -->
           <!-- <div class="row"> -->
             <br>
+            
+            </form>
             {!! Form::open(['action' => ['adminPortofolioController@update', $portofolio->id], 'method' => 'POST',
             'enctype'=>'multipart/form-data']) !!}
             <div class="form-group">
@@ -209,13 +211,7 @@
 
             <!-- </div> -->
 
-            <div class="row">
 
-
-
-
-
-            </div>
             <!-- /.container-fluid -->
 
           </div>
@@ -237,9 +233,7 @@
       </div>
       <!-- End of Page Wrapper -->
 
-      <a href="adminportofolio/create">
-        <button class="rounded-circle float-right btn-primary" style="position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;" >+</button>
-      </a>
+      
 
       <!-- Logout Modal-->
       <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -261,6 +255,21 @@
       </div>
 
       <!-- Bootstrap core JavaScript-->
+      <script>
+        function picture(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+              $('#picture')
+              .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+
+      </script>
 
       <script src="{{asset('/js/jquery/jquery.min.js')}}"></script>
       <script src="{{asset('/js/bootstrap/js/bootstrap.bundle.min.js')}}"></script>

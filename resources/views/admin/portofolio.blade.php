@@ -79,7 +79,7 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="{{url('adminstore')}}" data-toggle="" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <!-- <i class="fas fa-fw fa-wrench"></i> -->
           <span>Store</span>
         </a>
@@ -177,7 +177,7 @@
           </div>
 
           <!-- Content Row -->
-          <div class="row">
+          <div class="row" style="position: relative;">
 
             <!-- First Column -->
             @if(count($portofolio)>0)
@@ -196,12 +196,11 @@
                     <center>
 
                       <h6 class="m-0 font-weight-bold text-primary">{{$p->title}}</h6>
-
+                     
                       <br>
-                      <h10>{{$p->desc}}</h10>
+                      <h10>{{ str_limit($p->desc, 100) }}</h10>
                       <br>
                       <br>
-                      
                       
                     </center>
                     <div>
@@ -213,8 +212,6 @@
                       {{Form::hidden('_method', 'DELETE')}}
                       {{Form::submit("Delete", ['class'=>'btn btn-danger'])}} 
                       {!! Form::close() !!}
-
-
 
                     </div>
                   </div>

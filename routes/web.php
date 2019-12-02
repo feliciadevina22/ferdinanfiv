@@ -19,10 +19,12 @@ Route::get('/', function () {
 Route::resource('admin','adminDashboardController');
 // Route::resource('admin/portofolio','adminPortofolioController');
 Route::resource('adminportofolio','adminPortofolioController');
+Route::resource('adminstore','adminStoreController');
 
 Route::resource('adminprofile','adminProfileController');
 
 Route::resource('portofolio','PortofoliosController');
+Route::resource('store','StoresController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
