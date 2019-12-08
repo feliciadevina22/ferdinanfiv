@@ -84,21 +84,13 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-          dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-          commodo consequat.</p>
-        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident.</p>
-        <p>Deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-          architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia.</p>
+        <p>{{$abouts[0]->about}}</p>
       </div>
       <div class="col-md-4 text-center drag-lg-top">
         <div class="shadow-down mb-4">
-          <img src="images/about/author.jpg" alt="author" class="img-fluid w-100 rounded-lg border-thick border-white">
-        </div>
-        <img src="images/about/signature.png" alt="signature" class="img-fluid">
-        <h4>Johnathan Smith</h4>
+          <img src="storage/about_image/{{$abouts[0]->pic}}" alt="author" class="img-fluid w-100 rounded-lg border-thick border-white">
+        </div> 
+        <h4>FERDINANFIV</h4>
       </div>
     </div>
   </div>
@@ -149,7 +141,7 @@
       @foreach($profiles as $p)
       <div class="col-md-4 col-sm-6 mb-4 mb-md-0">
         <div class="card text-center">
-          <img src="{{$p->pic}}" class="card-img-top">
+          <img src="storage/profile_image/{{$p->pic}}" class="card-img-top">
           <div class="card-body">
             <h4 class="card-title">{{$p->name}}</h4>
             <p class="text-light font-secondary">{{$p->desc}}</p>
@@ -162,76 +154,6 @@
   </div>
 </section>
 <!-- /team -->
-
-<!-- clients -->
-<section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">My Clients</h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="client-logo-slider d-flex align-items-center">
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-1.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-2.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-3.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-4.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-5.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-1.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-2.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-3.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-4.png" alt="client-logo"></a>
-          <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-              src="images/clients-logo/client-logo-5.png" alt="client-logo"></a>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- /clients -->
-
-<!-- contact -->
-<section class="section section-on-footer" data-background="images/backgrounds/bg-dots.png">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <h2 class="section-title">Contact Info</h2>
-      </div>
-      <div class="col-lg-8 mx-auto">
-        <div class="bg-white rounded text-center p-5 shadow-down">
-          <h4 class="mb-80">Contact Form</h4>
-          <form action="#" class="row">
-            <div class="col-md-6">
-              <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4">
-            </div>
-            <div class="col-md-6">
-              <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4">
-            </div>
-            <div class="col-12">
-              <textarea name="message" id="message" class="form-control px-0 mb-4"
-                placeholder="Type Message Here"></textarea>
-            </div>
-            <div class="col-lg-6 col-10 mx-auto">
-              <button class="btn btn-primary w-100">send</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- /contact -->
 
 <!-- footer -->
 <footer class="bg-dark footer-section">

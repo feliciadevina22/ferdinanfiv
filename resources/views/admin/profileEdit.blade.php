@@ -9,10 +9,10 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>FERDINANFIV Admin- PROFILE</title>
+  <title>FERDINANFIV Admin- Dashboard</title>
 
   <!-- Custom fonts for this template-->
-  <!-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">  -->
+  <!-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css"> -->
 
   <link href="{{ asset('/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -42,32 +42,32 @@
       <center>
         <img src="https://image.freepik.com/free-photo/scottish-fold-cat-blue-surface_23-2148181678.jpg" width="100px" class="rounded-circle">
       </center>
-
+      
       <br>
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="admin">
+        <a class="nav-link" href="{{url('admin')}}">
           <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
           <span>Dashboard</span></a>
-      </li>
+        </li>
 
-      <!-- Divider -->
-      <!-- <hr class="sidebar-divider"> -->
+        <!-- Divider -->
+        <!-- <hr class="sidebar-divider"> -->
 
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        <!-- Interface -->
-      </div>
+        <!-- Heading -->
+        <div class="sidebar-heading">
+          <!-- Interface -->
+        </div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="adminportofolio" data-toggle="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <!-- <i class="fas fa-fw fa-cog"></i> -->
-          <span>Portofolio</span>
-        </a>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="{{url('adminportofolio')}}" data-toggle="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <!-- <i class="fas fa-fw fa-cog"></i> -->
+            <span>Portofolio</span>
+          </a>
         <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
@@ -79,7 +79,7 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="adminstore" data-toggle="" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="{{url('adminstore')}}" data-toggle="" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <!-- <i class="fas fa-fw fa-wrench"></i> -->
           <span>Store</span>
         </a>
@@ -104,7 +104,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item active">
-        <a class="nav-link collapsed" href="#" data-toggle="" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="{{url('adminprofile')}}" data-toggle="" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <!-- <i class="fas fa-fw fa-folder"></i> -->
           <span>Profile</span>
         </a>
@@ -122,7 +122,7 @@
         </div> -->
       </li>
 
-
+      
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -162,7 +162,7 @@
           </form> -->
 
 
-
+          
 
         </nav>
         <!-- End of Topbar -->
@@ -172,138 +172,124 @@
 
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Profile</h1>
+            <h1 class="h3 mb-0 text-gray-800">Edit Profile Item</h1>
             <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
           </div>
-
+          @include('inc.messages')
           <!-- Content Row -->
-          <div class="row">
+          <!-- <div class="row"> -->
+            <br>
+            
+            </form>
+            {!! Form::open(['action' => ['adminProfileController@update', $profile->id], 'method' => 'POST',
+            'enctype'=>'multipart/form-data']) !!}
+            <div class="form-group">
+              {{Form::label('title', 'Title')}}
+              {{Form::text('name', $profile->name, 
+              ['class' => 'form-control', 
+              'placeholder' => 'Title' ])}}
+            </div> 
 
-            <!-- First Column -->
-            <div class="col-lg-6">
-                <center>
-              <div class="col-lg-6">
-                  <br>
-                  <img src="storage/about_image/{{$abouts[0]->pic}}" alt="Ferdinan" width="100%">
-               </div>
-               </center>
-            </div>
+            <div class="form-group">
+              {{Form::label('description', 'Description')}}
+              <br>
+              {{Form::textarea('description', $profile->desc, 
+              ['class' => 'form-control', 
+              'placeholder' => 'Description'])}}
+            </div> 
 
-            <div class="col-lg-6">
-              <center>
-                <br>
-                <p>{{$abouts[0]->about}}</p>
-                <a href="about/{{$abouts[0]->id}}/edit" class="btn btn-primary" role="button">Edit</a>
-              </center>
-            </div>
+            <div class="form-group">
+              {{Form::file('picture')}}
+              <br><br>
+              {{Form::hidden('_method','PUT')}}
+
+              {{Form::submit('Save', ['class'=>'btn btn-primary'])}}
+            </div> 
+            {!! Form::close() !!}
+
+
+
+            <!-- </div> -->
+
+
+            <!-- /.container-fluid -->
+
           </div>
+          <!-- End of Main Content -->
 
-          <br clear:both>
-
-
-          <div class="row" style="position: relative;">
-            @foreach($profiles as $p)
-            <div class="col-lg-4">
-              <div class="card shadow mb-4">
-                <div class="card-body">
-                  <center>
-                    <img src="storage/profile_image/{{$p->pic}}" style="max-height: 200px;">
-                  </center>
-                  <br>
-                  <div class="card-header py-3">
-                    <center>
-
-                      <h6 class="m-0 font-weight-bold text-primary">{{$p->name}}</h6>
-
-                      <br>
-                      <h10>{{$p->desc}}</h10>
-                      <br>
-                      <br>
-                    </center>
-                    <div>
-                      <a href="adminprofile/{{$p->id}}/edit" class="btn btn-primary" role="button">Edit</a>
-                      {!! Form::open(['action' => ['adminProfileController@destroy',
-                      $p->id],'method' => 'POST',
-                      'class' => 'float-right']) !!}
-                      {{Form::hidden('_method', 'DELETE')}}
-                      {{Form::submit("Delete", ['class'=>'btn btn-danger'])}}
-                      {!! Form::close() !!}
-                    </div>
-                  </div>
-                </div>
+          <!-- Footer -->
+          <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+              <div class="copyright text-center my-auto">
+                <span>FERDINANFIV 2019</span>
               </div>
             </div>
-            @endforeach
-          </div>
-
+          </footer>
+          <!-- End of Footer -->
 
         </div>
-
-        <!-- /.container-fluid -->
+        <!-- End of Content Wrapper -->
 
       </div>
-      <!-- End of Main Content -->
+      <!-- End of Page Wrapper -->
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>FERDINANFIV 2019</span>
+      
+
+      <!-- Logout Modal-->
+      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+            <div class="modal-footer">
+              <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+              <a class="btn btn-primary" href="login.html">Logout</a>
+            </div>
           </div>
         </div>
-      </footer>
-      <!-- End of Footer -->
-
-    </div>
-    <!-- End of Content Wrapper -->
-
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <a href="adminprofile/create">
-    <button class="rounded-circle float-right btn-primary" style="position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;">+</button>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Bootstrap core JavaScript-->
+      <!-- Bootstrap core JavaScript-->
+      <script>
+        function picture(input) {
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
 
-  <script src="{{asset('/js/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('/js/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+            reader.onload = function (e) {
+              $('#picture')
+              .attr('src', e.target.result);
+            };
 
-  <!-- Core plugin JavaScript-->
-  <script src="{{asset('/js/jquery-easing/jquery.easing.min.js')}}"></script>
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
 
-  <!-- Custom scripts for all pages-->
-  <script src="{{asset('/js/sb-admin-2.min.js')}}"></script>
+      </script>
 
-  <!-- Page level plugins -->
-  <!-- <script src="{{asset('/js/chart.js/Chart.min.js')}}"></script> -->
+      <script src="{{asset('/js/jquery/jquery.min.js')}}"></script>
+      <script src="{{asset('/js/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
-  <!-- Page level custom scripts -->
-  <script src="{{asset('/js/demo/chart-area-demo.js')}}"></script>
-  <script src="{{asset('/js/demo/chart-pie-demo.js')}}"></script>
+      <!-- Core plugin JavaScript-->
+      <script src="{{asset('/js/jquery-easing/jquery.easing.min.js')}}"></script>
 
-  <script src="{{asset('/js/app.js')}}"></script>
-  <script src="{{asset('/js/fontawesome/fontawesome.js')}}"></script>
+      <!-- Custom scripts for all pages-->
+      <script src="{{asset('/js/sb-admin-2.min.js')}}"></script>
 
-</body>
+      <!-- Page level plugins -->
+      <!-- <script src="{{asset('/js/chart.js/Chart.min.js')}}"></script> -->
 
-</html>
+      <!-- Page level custom scripts -->
+      <script src="{{asset('/js/demo/chart-area-demo.js')}}"></script>
+      <script src="{{asset('/js/demo/chart-pie-demo.js')}}"></script>
+
+      <script src="{{asset('/js/app.js')}}"></script>
+      <script src="{{asset('/js/fontawesome/fontawesome.js')}}"></script>
+
+    </body>
+
+    </html>

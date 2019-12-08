@@ -88,23 +88,47 @@
       </div>
       <div class="col-lg-8 mx-auto">
         <div class="bg-white rounded text-center p-5 shadow-down">
+
+        {!! Form::open([
+              'action' => 'ContactController@store', 
+              'method' => 'POST',
+              'enctype'=>'multipart/form-data'
+              ]) !!}
+
           <h4 class="mb-80">Contact Form</h4>
           <form action="#" class="row">
             <div class="col-md-6">
-              <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4">
+            {{Form::label('name', 'Name')}}
+              {{Form::text('name', '', 
+              ['class' => 'form-control px-0 mb-4', 
+              'placeholder' => 'Full Name'])}}
+              <!-- <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4"> -->
             </div>
+
             <div class="col-md-6">
-              <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4">
+            {{Form::label('email', 'Email')}}
+              {{Form::text('email', '', 
+              ['class' => 'form-control px-0 mb-4', 
+              'placeholder' => 'Email Address'])}}
+
+              <!-- <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4"> -->
             </div>
+
             <div class="col-12">
-              <textarea name="message" id="message" class="form-control px-0 mb-4"
-                placeholder="Type Message Here"></textarea>
+            {{Form::label('message', 'Message')}}
+              {{Form::textarea('message', '', 
+              ['class' => 'form-control px-0 mb-4', 
+              'placeholder' => 'Type Message Here'])}}
+
+              <!-- <textarea name="message" id="message" class="form-control px-0 mb-4"placeholder="Type Message Here"></textarea> -->
             </div>
+
             <div class="col-lg-6 col-10 mx-auto">
-              <button class="btn btn-primary w-100">send</button>
+            {{Form::submit('Save', ['class'=>'btn btn-primary w-100'])}}
+              <!-- <button class="btn btn-primary w-100">send</button> -->
             </div>
           </form>
-        </div>
+        </div> 
       </div>
     </div>
   </div>
