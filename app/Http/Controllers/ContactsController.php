@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Models\Contact;
+use App\Models\Contact;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
@@ -18,7 +18,7 @@ class ContactsController extends Controller
 
         $contact = Contact::all();
         // dd($data);
-        return view('about.index', compact('contact'))->with($data);
+        return view('contact.index', compact('contact'))->with($data);
     }
 
     public function create()
@@ -37,8 +37,8 @@ class ContactsController extends Controller
         // Membuat object dari Model
         $contact = new Contact();
         $contact->name = $request->input('name');
-        $contact->desc = $request->input('email');
-        $contact->desc = $request->input('message');
+        $contact->email = $request->input('email');
+        $contact->message = $request->input('message');
 
         $contact->save();
 

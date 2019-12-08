@@ -122,7 +122,12 @@
         </div> -->
       </li>
 
-
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="admincontact" data-toggle="" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <!-- <i class="fas fa-fw fa-folder"></i> -->
+          <span>Contact</span>
+        </a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">

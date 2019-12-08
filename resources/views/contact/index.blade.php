@@ -125,6 +125,7 @@
 
             <div class="col-lg-6 col-10 mx-auto">
             {{Form::submit('Save', ['class'=>'btn btn-primary w-100'])}}
+            {!! Form::close() !!}
               <!-- <button class="btn btn-primary w-100">send</button> -->
             </div>
           </form>

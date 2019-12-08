@@ -21,12 +21,13 @@ Route::resource('admin','adminDashboardController');
 Route::resource('adminportofolio','adminPortofolioController');
 Route::resource('adminstore','adminStoreController');
 Route::resource('adminprofile','adminProfileController');
+Route::resource('admincontact','ContactsController');
 
 
 Route::resource('portofolio','PortofoliosController');
 Route::resource('store','StoresController');
 Route::resource('about','AboutController');
-Route::resource('contact','ContactsController');
+Route::resource('contact','ContactsController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
