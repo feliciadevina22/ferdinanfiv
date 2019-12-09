@@ -9,10 +9,10 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>FERDINANFIV Admin- Dashboard</title>
+  <title>FERDINANFIV Admin- PROFILE</title>
 
   <!-- Custom fonts for this template-->
-  <!-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css"> -->
+  <!-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">  -->
 
   <link href="{{ asset('/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -42,32 +42,32 @@
       <center>
         <img src="https://image.freepik.com/free-photo/scottish-fold-cat-blue-surface_23-2148181678.jpg" width="100px" class="rounded-circle">
       </center>
-      
+
       <br>
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="{{url('admin')}}">
+        <a class="nav-link" href="admin">
           <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
           <span>Dashboard</span></a>
-        </li>
+      </li>
 
-        <!-- Divider -->
-        <!-- <hr class="sidebar-divider"> -->
+      <!-- Divider -->
+      <!-- <hr class="sidebar-divider"> -->
 
-        <!-- Heading -->
-        <div class="sidebar-heading">
-          <!-- Interface -->
-        </div>
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        <!-- Interface -->
+      </div>
 
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item ">
-          <a class="nav-link collapsed" href="{{url('adminportofolio')}}" data-toggle="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-            <!-- <i class="fas fa-fw fa-cog"></i> -->
-            <span>Portofolio</span>
-          </a>
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="adminportofolio" data-toggle="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <!-- <i class="fas fa-fw fa-cog"></i> -->
+          <span>Portofolio</span>
+        </a>
         <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
@@ -78,8 +78,8 @@
       </li>
 
       <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item active">
-        <a class="nav-link collapsed" href="{{url('adminstore')}}" data-toggle="" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="adminstore" data-toggle="" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <!-- <i class="fas fa-fw fa-wrench"></i> -->
           <span>Store</span>
         </a>
@@ -104,30 +104,20 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="{{url('adminprofile')}}" data-toggle="" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="adminprofile" data-toggle="" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <!-- <i class="fas fa-fw fa-folder"></i> -->
           <span>Profile</span>
         </a>
-        <!-- <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login Screens:</h6>
-            <a class="collapse-item" href="login.html">Login</a>
-            <a class="collapse-item" href="register.html">Register</a>
-            <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-            <div class="collapse-divider"></div>
-            <h6 class="collapse-header">Other Pages:</h6>
-            <a class="collapse-item" href="404.html">404 Page</a>
-            <a class="collapse-item" href="blank.html">Blank Page</a>
-          </div>
-        </div> -->
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link collapsed" href="admincontact" data-toggle="" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <!-- <i class="fas fa-fw fa-folder"></i> -->
           <span>Contact</span>
         </a>
       </li>
+
+
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -166,9 +156,6 @@
             </div>
           </form> -->
 
-
-          
-
         </nav>
         <!-- End of Topbar -->
 
@@ -176,60 +163,58 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Store</h1>
-            <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
-          </div>
+          <h1 class="h3 mb-2 text-gray-800">CONTACT</h1>
+          <p class="mb-4">Contact for people</a>.</p>
 
-          <!-- Content Row -->
-          <div class="row" style="position: relative;">
-
-            <!-- First Column -->
-            @if(count($store)>0)
-            @foreach ($store as $s)
-            <div class="col-lg-4">
-
-              <div class="card shadow mb-4">
-
-                <div class="card-body">
-                  <center>
-                    <img src="storage/store_image/{{$s->pic}}" style="max-height: 200px;">  
-                  </center>
-                  
-                  <br>
-                  <div class="card-header py-3">
-                    <center>
-
-                      <h6 class="m-0 font-weight-bold text-primary">{{$s->title}}</h6>
-                     
-                      <br>
-                      <h10>{{ str_limit($s->desc, 100) }}</h10>
-                      <br>
-                      <br>
-                      IDR {{$s->price}}
-                    </center>
-                    <div>
-                      <a href="adminstore/{{$s->id}}/edit" class="btn btn-primary" role="button">Edit</a>
-                       {!! Form::open(['action' => ['adminStoreController@destroy', 
-                      $s->id],'method' => 'POST', 
-                      'class' => 'float-right']) !!}
-                      {{Form::hidden('_method', 'DELETE')}}
-                      {{Form::submit("Delete", ['class'=>'btn btn-danger'])}} 
-                      {!! Form::close() !!}
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">Contact</h6>
             </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th width=3%>No</th>
+                      <th width=17%>Name</th>
+                      <th width=20%>email</th>
+                      <th width=42%>Message</th>
+                      <th width=18%><a href="" class="btn btn-primary" role="button">Send Email</a>
+                        {!! Form::open(['action' => ['ContactsController@destroy',
+                        $contact[0]->id],'method' => 'POST',
+                        'class' => 'float-right']) !!}
+                        {{Form::hidden('_method', 'DELETE')}}
+                        {{Form::submit("Delete", ['class'=>'btn btn-danger'])}}
+                        {!! Form::close() !!}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <php $number = 1; ?>
+                    @if(count($contact)>0)
+                    @foreach ($contact as $c)
+                    <tr>
+                      <td><php echo $number, $number+1; ?></td>
+                      <td>Felicia</td>
+                      <td>fsiswanto@@</td>
+                      <td>Bisa ka?</td>
+                      <td><a href="" class="btn btn-primary" role="button">Send Email</a>
+                        {!! Form::open(['action' => ['ContactsController@destroy',
+                        $c->id],'method' => 'POST',
+                        'class' => 'float-right']) !!}
+                        {{Form::hidden('_method', 'DELETE')}}
+                        {{Form::submit("Delete", ['class'=>'btn btn-danger'])}}
+                        {!! Form::close() !!}</td>
+                    </tr>
             @endforeach
             @endif
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
 
-
-
         </div>
-
-        
         <!-- /.container-fluid -->
 
       </div>
@@ -239,7 +224,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>FERDINANFIV 2019</span>
+            <span>Copyright &copy; Your Website 2019</span>
           </div>
         </div>
       </footer>
@@ -251,8 +236,9 @@
   </div>
   <!-- End of Page Wrapper -->
 
-  <a href="adminstore/create">
-    <button class="rounded-circle float-right btn-primary" style="position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;" >+</button>
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
   </a>
 
   <!-- Logout Modal-->
@@ -275,25 +261,21 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-
-  <script src="{{asset('/js/jquery/jquery.min.js')}}"></script>
-  <script src="{{asset('/js/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="{{asset('/js/jquery-easing/jquery.easing.min.js')}}"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="{{asset('/js/sb-admin-2.min.js')}}"></script>
+  <script src="js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
-  <!-- <script src="{{asset('/js/chart.js/Chart.min.js')}}"></script> -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
   <!-- Page level custom scripts -->
-  <script src="{{asset('/js/demo/chart-area-demo.js')}}"></script>
-  <script src="{{asset('/js/demo/chart-pie-demo.js')}}"></script>
-  
-  <script src="{{asset('/js/app.js')}}"></script>
-  <script src="{{asset('/js/fontawesome/fontawesome.js')}}"></script>
+  <script src="js/demo/datatables-demo.js"></script>
 
 </body>
 

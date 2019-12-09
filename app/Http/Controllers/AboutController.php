@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Profile;
+use App\Models\About;
 
 class AboutController extends Controller
 {
@@ -13,72 +15,83 @@ class AboutController extends Controller
      */
     public function index()
     {
-        return view('about.index');
+        $data = array(
+            'id' => "profiles",
+            'id' => "abouts"
+        );
+
+        $profiles = Profile::all();
+        $abouts = About::All();
+        // dd($data);
+        return view('about.index', compact('profiles','abouts'))->with($data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
-        //
+        $data = array(
+            'pageid'=>"about",
+            'about'=>About::find($id)
+        );
+
+        return view('admin.aboutEdit')->with($data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'about' => 'required',
+            'picture' => 'required'
+        ]);
+
+        // Membuat object dari Model Post
+        $about = About::find($id);
+        $about->about = $request->input('about');
+        $path = 'storage/about_image/'.$about->pic;
+        if($request->hasFile('picture')){
+            unlink($path);
+            $fileNameWithExt = $request->file('picture')->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $filenameSimpan = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('picture')->storeAs('public/about_image', $filenameSimpan);
+            $about->pic = $request->input('picture');
+        }else{
+            $filenameSimpan = $about->pic;
+        }
+        $about->pic = $filenameSimpan;
+        $about->save();
+
+        return redirect('/adminprofile')->with('success', 'Data telah diubah.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    public function show($id)
+    {
+        // Membuat object dari Model
+        $about = new About(); 
+        $about->about = $request->input('description');
+        $about->pic = $request->input('picture');
+        $about->save();
+
+        return redirect('/adminprofile');
+    }
+
     public function destroy($id)
     {
-        //
+        $abouts = About::find($id); 
+        $path = 'storage/profile_image/'.$abouts->pic;
+        
+        unlink($path);
+        $abouts->delete();
+        return redirect('/adminprofile');
     }
 }

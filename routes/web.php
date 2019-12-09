@@ -29,13 +29,17 @@ Route::resource('admin','adminDashboardController');
 // Route::resource('admin/portofolio','adminPortofolioController');
 Route::resource('adminportofolio','adminPortofolioController');
 Route::resource('adminstore','adminStoreController');
-
 Route::resource('adminprofile','adminProfileController');
+// Route::resource('admincontact','ContactsController@indexadmin');
+Route::get('/admincontact', [
+    'uses' => 'ContactsController@indexadmin'
+]);
+
 
 Route::resource('portofolio','PortofoliosController');
 Route::resource('store','StoresController');
 Route::resource('about','AboutController');
-Route::resource('profile','ProfilesController');
+Route::resource('contact','ContactsController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

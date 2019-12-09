@@ -42,7 +42,7 @@
       <center>
         <img src="https://image.freepik.com/free-photo/scottish-fold-cat-blue-surface_23-2148181678.jpg" width="100px" class="rounded-circle">
       </center>
-      
+
       <br>
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
@@ -52,22 +52,22 @@
         <a class="nav-link" href="admin">
           <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
           <span>Dashboard</span></a>
-        </li>
+      </li>
 
-        <!-- Divider -->
-        <!-- <hr class="sidebar-divider"> -->
+      <!-- Divider -->
+      <!-- <hr class="sidebar-divider"> -->
 
-        <!-- Heading -->
-        <div class="sidebar-heading">
-          <!-- Interface -->
-        </div>
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        <!-- Interface -->
+      </div>
 
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item active">
-          <a class="nav-link collapsed" href="adminportofolio" data-toggle="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-            <!-- <i class="fas fa-fw fa-cog"></i> -->
-            <span>Portofolio</span>
-          </a>
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="adminportofolio" data-toggle="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <!-- <i class="fas fa-fw fa-cog"></i> -->
+          <span>Portofolio</span>
+        </a>
         <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
@@ -79,7 +79,7 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="adminstore" data-toggle="" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <!-- <i class="fas fa-fw fa-wrench"></i> -->
           <span>Store</span>
         </a>
@@ -103,7 +103,7 @@
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <!-- <i class="fas fa-fw fa-folder"></i> -->
           <span>Profile</span>
@@ -122,7 +122,12 @@
         </div> -->
       </li>
 
-      
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="admincontact" data-toggle="" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <!-- <i class="fas fa-fw fa-folder"></i> -->
+          <span>Contact</span>
+        </a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
@@ -162,7 +167,7 @@
           </form> -->
 
 
-          
+
 
         </nav>
         <!-- End of Topbar -->
@@ -181,46 +186,64 @@
 
             <!-- First Column -->
             <div class="col-lg-6">
-            <center>
-                <h4>Profile</h4>
-                <br>
-
-                <div> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/1200px-LINE_logo.svg.png" alt="Line" width="100"> </div>
-                
-                <p>ferdinanfiv</p>
-                <a href="adminprofile/edit" class="btn btn-primary" role="button">Edit</a>
-
-                <br>
-                <br>
-
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/LINE_logo.svg/1200px-LINE_logo.svg.png" alt="Line" width="100">
-                <p>ferdinanfiv</p>
-
-                <a href="adminprofile/edit" class="btn btn-primary" role="button">Edit</a>
-            </center>
-              
+                <center>
+              <div class="col-lg-6">
+                  <br>
+                  <img src="storage/about_image/{{$abouts[0]->pic}}" alt="Ferdinan" width="100%">
+               </div>
+               </center>
             </div>
-            
+
             <div class="col-lg-6">
-            <center>
-                <h4>About</h4>
+              <center>
                 <br>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            </center>
+                <p>{{$abouts[0]->about}}</p>
+                <a href="about/{{$abouts[0]->id}}/edit" class="btn btn-primary" role="button">Edit</a>
+              </center>
             </div>
           </div>
 
+          <br clear:both>
+
+
+          <div class="row" style="position: relative;">
+            @foreach($profiles as $p)
+            <div class="col-lg-4">
+              <div class="card shadow mb-4">
+                <div class="card-body">
+                  <center>
+                    <img src="storage/profile_image/{{$p->pic}}" style="max-height: 200px;">
+                  </center>
+                  <br>
+                  <div class="card-header py-3">
+                    <center>
+
+                      <h6 class="m-0 font-weight-bold text-primary">{{$p->name}}</h6>
+
+                      <br>
+                      <h10>{{$p->desc}}</h10>
+                      <br>
+                      <br>
+                    </center>
+                    <div>
+                      <a href="adminprofile/{{$p->id}}/edit" class="btn btn-primary" role="button">Edit</a>
+                      {!! Form::open(['action' => ['adminProfileController@destroy',
+                      $p->id],'method' => 'POST',
+                      'class' => 'float-right']) !!}
+                      {{Form::hidden('_method', 'DELETE')}}
+                      {{Form::submit("Delete", ['class'=>'btn btn-danger'])}}
+                      {!! Form::close() !!}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            @endforeach
+          </div>
 
 
         </div>
 
-        <div class="row">
-
-
-
-
-
-        </div>
         <!-- /.container-fluid -->
 
       </div>
@@ -242,8 +265,8 @@
   </div>
   <!-- End of Page Wrapper -->
 
-  <a href="adminportofolio/create">
-    <button class="rounded-circle float-right btn-primary" style="position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;" >+</button>
+  <a href="adminprofile/create">
+    <button class="rounded-circle float-right btn-primary" style="position: fixed; bottom: 20px; right: 20px; width: 50px; height: 50px;">+</button>
   </a>
 
   <!-- Logout Modal-->
@@ -282,7 +305,7 @@
   <!-- Page level custom scripts -->
   <script src="{{asset('/js/demo/chart-area-demo.js')}}"></script>
   <script src="{{asset('/js/demo/chart-pie-demo.js')}}"></script>
-  
+
   <script src="{{asset('/js/app.js')}}"></script>
   <script src="{{asset('/js/fontawesome/fontawesome.js')}}"></script>
 
