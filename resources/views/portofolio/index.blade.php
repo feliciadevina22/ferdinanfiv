@@ -12,18 +12,18 @@
   
   <!-- ** Plugins Needed for the Project ** -->
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="{{asset('plugins/bootstrap/bootstrap.min.css')}}">
   <!-- slick slider -->
-  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="{{asset('plugins/slick/slick.css')}}">
   <!-- themefy-icon -->
-  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="{{asset('plugins/themify-icons/themify-icons.css')}}">
 
   <!-- Main Stylesheet -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="{{asset('css/style.css')}}" rel="stylesheet">
   
   <!--Favicon-->
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
+  <link rel="icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
 
 </head>
 
@@ -70,13 +70,13 @@
     </div>
   </div>
   <!-- background shapes -->
-  <img src="images/illustrations/page-title.png" alt="illustrations" class="bg-shape-1 w-100">
-  <img src="images/illustrations/leaf-pink-round.png" alt="illustrations" class="bg-shape-2">
-  <img src="images/illustrations/dots-cyan.png" alt="illustrations" class="bg-shape-3">
-  <img src="images/illustrations/leaf-orange.png" alt="illustrations" class="bg-shape-4">
-  <img src="images/illustrations/leaf-yellow.png" alt="illustrations" class="bg-shape-5">
-  <img src="images/illustrations/dots-group-cyan.png" alt="illustrations" class="bg-shape-6">
-  <img src="images/illustrations/leaf-cyan-lg.png" alt="illustrations" class="bg-shape-7">
+  <img src="{{asset('images/illustrations/page-title.png')}}" alt="illustrations" class="bg-shape-1 w-100">
+  <img src="{{asset('images/illustrations/leaf-pink-round.png')}}" alt="illustrations" class="bg-shape-2">
+  <img src="{{asset('images/illustrations/dots-cyan.png')}}" alt="illustrations" class="bg-shape-3">
+  <img src="{{asset('images/illustrations/leaf-orange.png')}}" alt="illustrations" class="bg-shape-4">
+  <img src="{{asset('images/illustrations/leaf-yellow.png')}}" alt="illustrations" class="bg-shape-5">
+  <img src="{{asset('images/illustrations/dots-group-cyan.png')}}" alt="illustrations" class="bg-shape-6">
+  <img src="{{asset('images/illustrations/leaf-cyan-lg.png')}}" alt="illustrations" class="bg-shape-7">
 </section>
 <!-- /page title -->
 
@@ -99,26 +99,78 @@
             <input type="radio" name="shuffle-filter" value="illustration" />ILLUSTRATION
           </label>
         </div> -->
-      </div>
-    </div>
-    <div class="row shuffle-wrapper">
-      @if(count($portofolio)>0)
-      @foreach ($portofolio as $p)
-      <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;branding&quot;]">
-        <div class="position-relative rounded hover-wrapper">
-          <img src="storage/portofolio_image/{{$p->pic}}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
-          <div class="hover-overlay">
-            <div class="hover-content">
-              <a class="btn btn-light btn-sm" href="portofolio/{{$p->id}}">{{$p->title}}</a>
-            </div>
+
+        <?php 
+        if(isset($_GET['search'])){
+          ?>
+          <form action="../portofolio/search" method="GET" role="search">
+
+            <div class="input-group">
+              <input type="search" class="form-control" name="search"
+              placeholder="Search portofolio"> 
+              <span class="input-group-prepend">
+                <button type="submit" class="btn btn-default">
+                 <i class="fas fa-search"></i>
+               </button>
+             </span>
+           </div>
+         </form>
+         <?php
+       }else{
+        ?>
+        <form action="portofolio/search" method="GET" role="search">
+
+          <div class="input-group">
+            <input type="search" class="form-control" name="search"
+            placeholder="Search portofolio"> 
+            <span class="input-group-prepend">
+              <button type="submit" class="btn btn-default">
+               <i class="fas fa-search"></i>
+             </button>
+           </span>
+         </div>
+       </form>
+       <?php
+     }
+     ?>
+
+   </div>
+ </div>
+ <div class="row shuffle-wrapper">
+  @if(count($portofolio)>0)
+  @foreach ($portofolio as $p)
+  <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;branding&quot;]">
+    <div class="position-relative rounded hover-wrapper">
+      <?php 
+      if(isset($_GET['search'])){
+        ?>
+        <img src="../storage/portofolio_image/{{$p->pic}}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+        <div class="hover-overlay">
+          <div class="hover-content">
+            <a class="btn btn-light btn-sm" href="portofolio/{{$p->id}}">{{$p->title}}</a>
           </div>
         </div>
-      </div>
-      @endforeach
-      @endif
+        <?php
+      }else{
 
+        ?>
+        <img src="storage/portofolio_image/{{$p->pic}}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+        <div class="hover-overlay">
+          <div class="hover-content">
+            <a class="btn btn-light btn-sm" href="portofolio/{{$p->id}}">{{$p->title}}</a>
+          </div>
+        </div>
+        <?php
+
+      }
+      ?>
     </div>
   </div>
+  @endforeach
+  @endif
+
+</div>
+</div>
 </section>
 <!-- /portfolio -->
 
@@ -222,16 +274,16 @@
 <!-- /footer -->
 
 <!-- jQuery -->
-<script src="plugins/jQuery/jquery.min.js"></script>
+<script src="{{asset('plugins/jQuery/jquery.min.js')}}"></script>
 <!-- Bootstrap JS -->
-<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<script src="{{asset('plugins/bootstrap/bootstrap.min.js')}}"></script>
 <!-- slick slider -->
-<script src="plugins/slick/slick.min.js"></script>
+<script src="{{asset('plugins/slick/slick.min.js')}}"></script>
 <!-- filter -->
-<script src="plugins/shuffle/shuffle.min.js"></script>
+<script src="{{asset('plugins/shuffle/shuffle.min.js')}}"></script>
 
 <!-- Main Script -->
-<script src="js/script.js"></script>
+<script src="{{asset('js/script.js')}}"></script>
 
 </body>
 </html>

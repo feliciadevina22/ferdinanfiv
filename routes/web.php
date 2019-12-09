@@ -16,14 +16,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::any('store/search',function(){
-    $q = Input::get ( 'q' );
-    $item = Store::where('title','LIKE','%'.$q.'%')->get();
-    if(count($item) > 0)
-        return view('store.index')->withDetails($item)->withQuery ( $q );
-    else return view ('store.index')->withMessage('No item found. Try to search again !');
-});
-
 
 Route::resource('admin','adminDashboardController');
 // Route::resource('admin/portofolio','adminPortofolioController');
@@ -35,6 +27,9 @@ Route::get('/admincontact', [
     'uses' => 'ContactsController@indexadmin'
 ]);
 
+Route::get('store/search','StoresController@search');
+Route::get('portofolio/search','PortofoliosController@search');
+
 
 Route::resource('portofolio','PortofoliosController');
 Route::resource('store','StoresController');
@@ -44,3 +39,4 @@ Route::resource('contact','ContactsController');
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+?>

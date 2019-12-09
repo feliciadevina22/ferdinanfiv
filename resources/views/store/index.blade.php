@@ -12,20 +12,20 @@
   
   <!-- ** Plugins Needed for the Project ** -->
   <!-- Bootstrap -->
-  <link rel="stylesheet" href="plugins/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="{{asset('plugins/bootstrap/bootstrap.min.css')}}">
   <!-- slick slider -->
-  <link rel="stylesheet" href="plugins/slick/slick.css">
+  <link rel="stylesheet" href="{{asset('plugins/slick/slick.css')}}">
   <!-- themefy-icon -->
-  <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
-  <link rel="stylesheet" href="css/fontawesome/all.css">
+  <link rel="stylesheet" href="{{asset('plugins/themify-icons/themify-icons.css')}}">
+  <link rel="stylesheet" href="{{asset('css/fontawesome/all.css')}}">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Main Stylesheet -->
-  <link href="css/style.css" rel="stylesheet">
+  <link href="{{asset('css/style.css')}}" rel="stylesheet">
   
   <!--Favicon-->
-  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
+  <link rel="icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
 
 </head>
 
@@ -72,13 +72,13 @@
     </div>
   </div>
   <!-- background shapes -->
-  <img src="images/illustrations/page-title.png" alt="illustrations" class="bg-shape-1 w-100">
-  <img src="images/illustrations/leaf-pink-round.png" alt="illustrations" class="bg-shape-2">
-  <img src="images/illustrations/dots-cyan.png" alt="illustrations" class="bg-shape-3">
-  <img src="images/illustrations/leaf-orange.png" alt="illustrations" class="bg-shape-4">
-  <img src="images/illustrations/leaf-yellow.png" alt="illustrations" class="bg-shape-5">
-  <img src="images/illustrations/dots-group-cyan.png" alt="illustrations" class="bg-shape-6">
-  <img src="images/illustrations/leaf-cyan-lg.png" alt="illustrations" class="bg-shape-7">
+  <img src="{{asset('images/illustrations/page-title.png')}}" alt="illustrations" class="bg-shape-1 w-100">
+  <img src="{{asset('images/illustrations/leaf-pink-round.png')}}" alt="illustrations" class="bg-shape-2">
+  <img src="{{asset('images/illustrations/dots-cyan.png')}}" alt="illustrations" class="bg-shape-3">
+  <img src="{{asset('images/illustrations/leaf-orange.png')}}" alt="illustrations" class="bg-shape-4">
+  <img src="{{asset('images/illustrations/leaf-yellow.png')}}" alt="illustrations" class="bg-shape-5">
+  <img src="{{asset('images/illustrations/dots-group-cyan.png')}}" alt="illustrations" class="bg-shape-6">
+  <img src="{{asset('images/illustrations/leaf-cyan-lg.png')}}" alt="illustrations" class="bg-shape-7">
 </section>
 <!-- /page title -->
 
@@ -103,58 +103,92 @@
         </div> -->
 
 
-
-
-        <form action="store/search" method="POST" role="search">
-          {{ csrf_field() }}
+        <?php 
+        if(isset($_GET['search'])){
+          ?>
+          <form action="../store/search" method="GET" role="search">
+            
+            <div class="input-group">
+              <input type="search" class="form-control" name="search"
+              placeholder="Search item"> 
+              <span class="input-group-prepend">
+                <button type="submit" class="btn btn-default">
+                 <i class="fas fa-search"></i>
+               </button>
+             </span>
+           </div>
+         </form>
+         <?php
+       }else{
+        ?>
+        <form action="store/search" method="GET" role="search">
+          
           <div class="input-group">
-            <input type="text" class="form-control" name="q"
-            placeholder="Search item"> <span class="input-group-btn">
+            <input type="search" class="form-control" name="search"
+            placeholder="Search item"> 
+            <span class="input-group-prepend">
               <button type="submit" class="btn btn-default">
                <i class="fas fa-search"></i>
-              </button>
-            </span>
-          </div>
-        </form>
+             </button>
+           </span>
+         </div>
+       </form>
+       <?php
+     }
+     ?>
 
 
 
 
-      </div>
-    </div>
-    <div class="row shuffle-wrapper">
-      @if(count($store)>0)
-      @foreach ($store as $s)
-      <div class="col-lg-3 col-6 mb-4 shuffle-item" data-groups="[&quot;branding&quot;]" style="box-shadow: 0px 1px 3px #909999; margin: 20px; padding: 15px;">
-        <div class="position-relative rounded hover-wrapper" style="">
 
 
+   </div>
+ </div>
+ <div class="row shuffle-wrapper">
+  @if(count($store)>0)
+  @foreach ($store as $s)
+  <div class="col-lg-3 col-6 mb-4 shuffle-item" data-groups="[&quot;branding&quot;]" style="box-shadow: 0px 1px 3px #909999; margin: 20px; padding: 15px;">
+    <div class="position-relative rounded hover-wrapper" style="">
 
+
+      <?php 
+      if(isset($_GET['search'])){
+        ?>
+        <a class="" href="{{$s->id}}">
+          <img src="../storage/store_image/{{$s->pic}}" alt="store-image" class="img-fluid rounded w-100 d-block">
+
+          <?php
+        }else{
+
+          ?>
           <a class="" href="store/{{$s->id}}">
             <img src="storage/store_image/{{$s->pic}}" alt="store-image" class="img-fluid rounded w-100 d-block">
-
           </a>
+          <?php
+        }
+        ?>
 
 
-        </div>
-        <div style="text-align: center; font-family: century gothic;  max-height: 90px; padding-bottom: 20px;">
-          <br>
-          <b>
-            {{$s->title}}
-          </b>
-          <br><br>
-          IDR {{$s->price}}
-        </div>
-        
+
+      </div>
+      <div style="text-align: center; font-family: century gothic;  max-height: 90px; padding-bottom: 20px;">
+        <br>
+        <b>
+          {{$s->title}}
+        </b>
+        <br><br>
+        IDR {{$s->price}}
       </div>
 
-      @endforeach
-      @endif
     </div>
-  </section>
-  <!-- /portfolio -->
 
-  <!-- clients -->
+    @endforeach
+    @endif
+  </div>
+</section>
+<!-- /portfolio -->
+
+<!-- clients -->
 <!-- <section class="section bg-light">
   <div class="container">
     <div class="row">
@@ -254,16 +288,16 @@
 <!-- /footer -->
 
 <!-- jQuery -->
-<script src="plugins/jQuery/jquery.min.js"></script>
+<script src="{{asset('plugins/jQuery/jquery.min.js')}}"></script>
 <!-- Bootstrap JS -->
-<script src="plugins/bootstrap/bootstrap.min.js"></script>
+<script src="{{asset('plugins/bootstrap/bootstrap.min.js')}}"></script>
 <!-- slick slider -->
-<script src="plugins/slick/slick.min.js"></script>
+<script src="{{asset('plugins/slick/slick.min.js')}}"></script>
 <!-- filter -->
-<script src="plugins/shuffle/shuffle.min.js"></script>
+<script src="{{asset('plugins/shuffle/shuffle.min.js')}}"></script>
 
 <!-- Main Script -->
-<script src="js/script.js"></script>
+<script src="{{asset('js/script.js')}}"></script>
 
 </body>
 </html>

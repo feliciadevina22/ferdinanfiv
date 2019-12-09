@@ -136,4 +136,15 @@ class StoresController extends Controller
         $store->delete();
         //return redirect('/store')->with('success', 'Data telah dihapus.'); 
     }
+
+    public function search(request $request){
+        $search = $request->input('search');
+       
+        $store =  Store::where('title','LIKE','%'.$search.'%')->get();
+        
+        
+
+        // var_dump($store);
+        return view('store.index')->with('store',$store);
+    }
 }

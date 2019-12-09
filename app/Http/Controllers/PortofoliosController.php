@@ -126,4 +126,15 @@ class PortofoliosController extends Controller
         $portofolio->delete();
         //return redirect('/portofolio')->with('success', 'Data telah dihapus.'); 
     }
+
+    public function search(request $request){
+        $search = $request->input('search');
+       
+        $portofolio =  Portofolio::where('title','LIKE','%'.$search.'%')->get();
+        
+        
+
+        // var_dump($store);
+        return view('portofolio.index')->with('portofolio',$portofolio);
+    }
 }
