@@ -21,6 +21,17 @@ class ContactsController extends Controller
         return view('contact.index', compact('contact'))->with($data);
     }
 
+    public function indexadmin()
+    {
+        $data = array(
+            'id' => "contacts",
+        );
+
+        $contact = Contact::all();
+        // dd($data);
+        return view('admin.contact', compact('contact'))->with($data);
+    }
+
     public function create()
     {
         return view("admin.profileCreate");
@@ -42,7 +53,7 @@ class ContactsController extends Controller
 
         $contact->save();
 
-        return redirect('about.index')->with('success', 'Data telah terkirim.');
+        return redirect('contact.index')->with('success', 'Data telah terkirim.');
     }
 
     public function show($id)

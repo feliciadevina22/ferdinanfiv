@@ -90,14 +90,14 @@
         <div class="bg-white rounded text-center p-5 shadow-down">
 
         {!! Form::open([
-              'action' => 'ContactController@store', 
+              'action' => 'ContactsController@store', 
               'method' => 'POST',
               'enctype'=>'multipart/form-data'
               ]) !!}
 
           <h4 class="mb-80">Contact Form</h4>
-          <form action="#" class="row">
-            <div class="col-md-6">
+          <class="row">
+            <div class="col-md-6" style="max-width: 100%">
             {{Form::label('name', 'Name')}}
               {{Form::text('name', '', 
               ['class' => 'form-control px-0 mb-4', 
@@ -105,7 +105,7 @@
               <!-- <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4"> -->
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-6" style="max-width: 100%">
             {{Form::label('email', 'Email')}}
               {{Form::text('email', '', 
               ['class' => 'form-control px-0 mb-4', 

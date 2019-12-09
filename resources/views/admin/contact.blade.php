@@ -104,7 +104,7 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+        <a class="nav-link collapsed" href="adminprofile" data-toggle="" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <!-- <i class="fas fa-fw fa-folder"></i> -->
           <span>Profile</span>
         </a>
@@ -176,33 +176,38 @@
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th width=3%>No</th>
+                      <th width=17%>Name</th>
+                      <th width=20%>email</th>
+                      <th width=42%>Message</th>
+                      <th width=18%><a href="" class="btn btn-primary" role="button">Send Email</a>
+                        {!! Form::open(['action' => ['ContactsController@destroy',
+                        $contact[0]->id],'method' => 'POST',
+                        'class' => 'float-right']) !!}
+                        {{Form::hidden('_method', 'DELETE')}}
+                        {{Form::submit("Delete", ['class'=>'btn btn-danger'])}}
+                        {!! Form::close() !!}</th>
                     </tr>
                   </thead>
-                  <tfoot>
-                    <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
-                    </tr>
-                  </tfoot>
                   <tbody>
+                    <php $number = 1; ?>
+                    @if(count($contact)>0)
+                    @foreach ($contact as $c)
                     <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
+                      <td><php echo $number, $number+1; ?></td>
+                      <td>Felicia</td>
+                      <td>fsiswanto@@</td>
+                      <td>Bisa ka?</td>
+                      <td><a href="" class="btn btn-primary" role="button">Send Email</a>
+                        {!! Form::open(['action' => ['ContactsController@destroy',
+                        $c->id],'method' => 'POST',
+                        'class' => 'float-right']) !!}
+                        {{Form::hidden('_method', 'DELETE')}}
+                        {{Form::submit("Delete", ['class'=>'btn btn-danger'])}}
+                        {!! Form::close() !!}</td>
                     </tr>
+            @endforeach
+            @endif
                   </tbody>
                 </table>
               </div>
