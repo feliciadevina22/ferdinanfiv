@@ -17,7 +17,9 @@
   <link rel="stylesheet" href="plugins/slick/slick.css">
   <!-- themefy-icon -->
   <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="css/fontawesome/all.css">
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Main Stylesheet -->
   <link href="css/style.css" rel="stylesheet">
   
@@ -99,6 +101,25 @@
             <input type="radio" name="shuffle-filter" value="illustration" />ILLUSTRATION
           </label>
         </div> -->
+
+
+
+
+        <form action="store/search" method="POST" role="search">
+          {{ csrf_field() }}
+          <div class="input-group">
+            <input type="text" class="form-control" name="q"
+            placeholder="Search item"> <span class="input-group-btn">
+              <button type="submit" class="btn btn-default">
+               <i class="fas fa-search"></i>
+              </button>
+            </span>
+          </div>
+        </form>
+
+
+
+
       </div>
     </div>
     <div class="row shuffle-wrapper">

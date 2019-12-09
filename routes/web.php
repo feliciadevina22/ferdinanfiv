@@ -16,6 +16,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::any('store/search',function(){
+    $q = Input::get ( 'q' );
+    $item = Store::where('title','LIKE','%'.$q.'%')->get();
+    if(count($item) > 0)
+        return view('store.index')->withDetails($item)->withQuery ( $q );
+    else return view ('store.index')->withMessage('No item found. Try to search again !');
+});
+
+
 Route::resource('admin','adminDashboardController');
 // Route::resource('admin/portofolio','adminPortofolioController');
 Route::resource('adminportofolio','adminPortofolioController');
