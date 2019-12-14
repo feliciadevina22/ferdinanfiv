@@ -27,6 +27,9 @@ Route::get('/admincontact', [
     'uses' => 'ContactsController@indexadmin'
 ]);
 
+Route::get('contact/{id}/send', 'ContactsController@send');
+
+
 Route::get('store/search','StoresController@search');
 Route::get('portofolio/search','PortofoliosController@search');
 
