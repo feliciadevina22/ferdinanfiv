@@ -19,7 +19,7 @@ class StoresController extends Controller
     {
         $data = array(
             'id' => "store",
-            'store' => Store::orderBy('created_at','desc')->paginate(5)
+            'store' => Store::all()
         );
 
         return view('store.index')->with($data);

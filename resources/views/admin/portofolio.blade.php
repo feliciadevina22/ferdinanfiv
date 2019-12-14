@@ -13,10 +13,10 @@
 
   <!-- Custom fonts for this template-->
   <!-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css"> -->
-
+<link rel="stylesheet" href="{{asset('css/fontawesome/all.css')}}">
   <link href="{{ asset('/css/all.min.css') }}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- Custom styles for this template-->
   <link href="{{ asset('/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
@@ -167,6 +167,7 @@
           </form> -->
 
 
+
           
 
         </nav>
@@ -180,6 +181,38 @@
             <h1 class="h3 mb-0 text-gray-800">Portofolio</h1>
             <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
           </div>
+          @if(isset($_GET['search']))
+
+        <form action="../adminportofolio/search" method="GET" role="search">
+
+          <div class="input-group">
+            <input type="search" class="form-control" name="search"
+            placeholder="Search portofolio"> 
+            <span class="input-group-prepend">
+              <button type="submit" class="btn btn-default">
+               <i class="fas fa-search"></i>
+             </button>
+           </span>
+         </div>
+       </form>
+
+       @else
+       
+       <form action="adminportofolio/search" method="GET" role="search">
+
+        <div class="input-group">
+          <input type="search" class="form-control" name="search"
+          placeholder="Search portofolio"> 
+          <span class="input-group-prepend">
+            <button type="submit" class="btn btn-default">
+             <i class="fas fa-search"></i>
+           </button>
+         </span>
+       </div>
+     </form>
+     @endif
+
+     <br>
 
           <!-- Content Row -->
           <div class="row" style="position: relative;">
@@ -193,7 +226,12 @@
 
                 <div class="card-body">
                   <center>
+                    @if(isset($_GET['search']))
+                    <img src="../storage/portofolio_image/{{$p->pic}}" style="max-height: 200px;">  
+                    @else
                     <img src="storage/portofolio_image/{{$p->pic}}" style="max-height: 200px;">  
+
+                    @endif
                   </center>
                   
                   <br>
@@ -209,8 +247,12 @@
                       
                     </center>
                     <div>
+                      @if(isset($_GET['search']))
+                      <a href="../adminportofolio/{{$p->id}}/edit" class="btn btn-primary" role="button" data-toggle="modal"  >Edit</a>
+                      @else
                       <a href="adminportofolio/{{$p->id}}/edit" class="btn btn-primary" role="button">Edit</a>
 
+                      @endif
                       {!! Form::open(['action' => ['adminPortofolioController@destroy', 
                       $p->id],'method' => 'POST', 
                       'class' => 'float-right']) !!}

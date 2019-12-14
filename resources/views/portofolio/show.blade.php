@@ -30,35 +30,8 @@
 <body>
 
 
-  <header class="navigation fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand font-tertiary h3" href="{{url('/')}}"><h3 class="font-tertiary text-white" style="margin-top: 20px">FERDINANFIV</h3></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse text-center" id="navigation">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{url('/')}}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('about')}}">about</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('store')}}">Store</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('portofolio')}}">Portofolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('contact')}}">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</header>
+  @include('layouts.header')
+  
 
 <!-- page title -->
 <section class="page-title bg-primary position-relative">
@@ -194,32 +167,7 @@
 <!-- /contact -->
 
 <!-- footer -->
-<footer class="bg-dark footer-section">
-  <div class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h5 class="text-light">Email</h5>
-          <p class="text-white paragraph-lg font-secondary">steve.fruits@email.com</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Phone</h5>
-          <p class="text-white paragraph-lg font-secondary">+880 2544 658 256</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Address</h5>
-          <p class="text-white paragraph-lg font-secondary">125/A, CA Commercial Area, California, USA</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="border-top text-center border-dark py-5">
-    <p class="mb-0 text-light">Copyright ©<script>
-      var CurrentYear = new Date().getFullYear()
-      document.write(CurrentYear)
-    </script></p>
-  </div>
-</footer>
+@include('layouts.footer')
 <!-- /footer -->
 
 <!-- jQuery -->

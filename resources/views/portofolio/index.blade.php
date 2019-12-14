@@ -17,10 +17,11 @@
   <link rel="stylesheet" href="{{asset('plugins/slick/slick.css')}}">
   <!-- themefy-icon -->
   <link rel="stylesheet" href="{{asset('plugins/themify-icons/themify-icons.css')}}">
+  <link rel="stylesheet" href="{{asset('css/fontawesome/all.css')}}">
 
   <!-- Main Stylesheet -->
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!--Favicon-->
   <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
   <link rel="icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
@@ -30,35 +31,7 @@
 <body>
 
 
-  <header class="navigation fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand font-tertiary h3" href="{{url('/')}}"><h3 class="font-tertiary text-white" style="margin-top: 20px">FERDINANFIV</h3></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse text-center" id="navigation">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{url('/')}}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('about')}}">about</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('store')}}">Store</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('portofolio')}}">Portofolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('contact')}}">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</header>
+  @include('layouts.header')
 
 <!-- page title -->
 <section class="page-title bg-primary position-relative">
@@ -100,25 +73,10 @@
           </label>
         </div> -->
 
-        <?php 
-        if(isset($_GET['search'])){
-          ?>
-          <form action="../portofolio/search" method="GET" role="search">
+        
+        @if(isset($_GET['search']))
 
-            <div class="input-group">
-              <input type="search" class="form-control" name="search"
-              placeholder="Search portofolio"> 
-              <span class="input-group-prepend">
-                <button type="submit" class="btn btn-default">
-                 <i class="fas fa-search"></i>
-               </button>
-             </span>
-           </div>
-         </form>
-         <?php
-       }else{
-        ?>
-        <form action="portofolio/search" method="GET" role="search">
+        <form action="../portofolio/search" method="GET" role="search">
 
           <div class="input-group">
             <input type="search" class="form-control" name="search"
@@ -130,9 +88,22 @@
            </span>
          </div>
        </form>
-       <?php
-     }
-     ?>
+
+       @else
+       
+       <form action="portofolio/search" method="GET" role="search">
+
+        <div class="input-group">
+          <input type="search" class="form-control" name="search"
+          placeholder="Search portofolio"> 
+          <span class="input-group-prepend">
+            <button type="submit" class="btn btn-default">
+             <i class="fas fa-search"></i>
+           </button>
+         </span>
+       </div>
+     </form>
+     @endif
 
    </div>
  </div>
@@ -141,29 +112,29 @@
   @foreach ($portofolio as $p)
   <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;branding&quot;]">
     <div class="position-relative rounded hover-wrapper">
-      <?php 
-      if(isset($_GET['search'])){
-        ?>
-        <img src="../storage/portofolio_image/{{$p->pic}}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
-        <div class="hover-overlay">
-          <div class="hover-content">
-            <a class="btn btn-light btn-sm" href="portofolio/{{$p->id}}">{{$p->title}}</a>
-          </div>
-        </div>
-        <?php
-      }else{
 
-        ?>
-        <img src="storage/portofolio_image/{{$p->pic}}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
-        <div class="hover-overlay">
-          <div class="hover-content">
-            <a class="btn btn-light btn-sm" href="portofolio/{{$p->id}}">{{$p->title}}</a>
-          </div>
-        </div>
-        <?php
+      @if(isset($_GET['search']))
 
-      }
-      ?>
+      <img src="../storage/portofolio_image/{{$p->pic}}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+      <div class="hover-overlay">
+        <div class="hover-content">
+          <a class="btn btn-light btn-sm" href="portofolio/{{$p->id}}">{{$p->title}}</a>
+        </div>
+      </div>
+
+
+
+      @else
+
+      <img src="storage/portofolio_image/{{$p->pic}}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+      <div class="hover-overlay">
+        <div class="hover-content">
+          <a class="btn btn-light btn-sm" href="portofolio/{{$p->id}}">{{$p->title}}</a>
+        </div>
+
+      </div>
+
+      @endif
     </div>
   </div>
   @endforeach
@@ -245,32 +216,7 @@
 <!-- /contact -->
 
 <!-- footer -->
-<footer class="bg-dark footer-section">
-  <div class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h5 class="text-light">Email</h5>
-          <p class="text-white paragraph-lg font-secondary">steve.fruits@email.com</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Phone</h5>
-          <p class="text-white paragraph-lg font-secondary">+880 2544 658 256</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Address</h5>
-          <p class="text-white paragraph-lg font-secondary">125/A, CA Commercial Area, California, USA</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="border-top text-center border-dark py-5">
-    <p class="mb-0 text-light">Copyright ©<script>
-      var CurrentYear = new Date().getFullYear()
-      document.write(CurrentYear)
-    </script></p>
-  </div>
-</footer>
+@include('layouts.footer')
 <!-- /footer -->
 
 <!-- jQuery -->

@@ -18,11 +18,13 @@ class PortofoliosController extends Controller
     public function index()
     {
         $data = array(
-            'id' => "portofolio",
-            'portofolio' => Portofolio::orderBy('created_at','desc')->paginate(5)
+            'id' => "portofolio"
+            
         );
 
-        return view('portofolio.index')->with($data);
+        $portofolio = Portofolio::all() ;
+
+        return view('portofolio.index', compact('portofolio'));
     }
 
     /**

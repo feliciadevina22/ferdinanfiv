@@ -106,7 +106,6 @@ class adminStoreController extends Controller
             'pageid'=>"store",
             'store'=>Store::find($id)
         );
-
         return view('admin.storeEdit')->with($data);
     }
 
@@ -168,5 +167,16 @@ class adminStoreController extends Controller
         
         $store->delete();
         return redirect('/adminstore');
+    }
+
+    public function search(request $request){
+        $search = $request->input('search');
+       
+        $store =  Store::where('title','LIKE','%'.$search.'%')->get();
+        
+        
+
+        // var_dump($store);
+        return view('admin.store')->with('store',$store);
     }
 }

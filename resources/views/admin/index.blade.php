@@ -30,18 +30,17 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" style="position: fixed;" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" style="position: fixed" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
+      <br>
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin">
         <div class="sidebar-brand-icon rotate-n-15">
           <!-- <i class="fas fa-laugh-wink"></i> -->
         </div>
         <div class="sidebar-brand-text mx-3">FERDINANFIV Admin</div>
       </a>
-      <center>
-        <img src="https://image.freepik.com/free-photo/scottish-fold-cat-blue-surface_23-2148181678.jpg" width="100px" class="rounded-circle">
-      </center>
+      
       
       <br>
       <!-- Divider -->
@@ -134,7 +133,25 @@
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
-        <button>Log Out</button>
+        @guest
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+        </li>
+        
+        @else
+        <li class="nav-item dropdown">
+            <button style="color: black" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+          </button>
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+          </form>
+        
+      </li>
+      @endguest
       </div>
 
     </ul>

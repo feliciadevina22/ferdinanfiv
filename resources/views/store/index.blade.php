@@ -19,9 +19,9 @@
   <link rel="stylesheet" href="{{asset('plugins/themify-icons/themify-icons.css')}}">
   <link rel="stylesheet" href="{{asset('css/fontawesome/all.css')}}">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Main Stylesheet -->
+    <!-- Main Stylesheet -->
   <link href="{{asset('css/style.css')}}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
   <!--Favicon-->
   <link rel="shortcut icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
@@ -32,35 +32,8 @@
 <body>
 
 
-  <header class="navigation fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand font-tertiary h3" href="{{url('/')}}"><h3 class="font-tertiary text-white" style="margin-top: 20px">FERDINANFIV</h3></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse text-center" id="navigation">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{url('/')}}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('about')}}">about</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('store')}}">Store</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('portofolio')}}">Portofolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('contact')}}">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</header>
+  @include('layouts.header')
+  
 
 <!-- page title -->
 <section class="page-title bg-primary position-relative">
@@ -85,7 +58,7 @@
 <!-- portfolio -->
 <section class="section">
   <div class="container">
-    <div class="row mb-5">
+    <div class="row mb-4">
       <div class="col-12">
         <!-- <div class="btn-group btn-group-toggle justify-content-center d-flex" data-toggle="buttons">
           <label class="btn btn-sm btn-primary active">
@@ -103,9 +76,9 @@
         </div> -->
 
 
-        <?php 
-        if(isset($_GET['search'])){
-          ?>
+        
+        @if(isset($_GET['search']))
+        
           <form action="../store/search" method="GET" role="search">
             
             <div class="input-group">
@@ -118,9 +91,9 @@
              </span>
            </div>
          </form>
-         <?php
-       }else{
-        ?>
+       
+       @else
+        
         <form action="store/search" method="GET" role="search">
           
           <div class="input-group">
@@ -133,10 +106,7 @@
            </span>
          </div>
        </form>
-       <?php
-     }
-     ?>
-
+       @endif
 
 
 
@@ -147,26 +117,24 @@
  <div class="row shuffle-wrapper">
   @if(count($store)>0)
   @foreach ($store as $s)
-  <div class="col-lg-3 col-6 mb-4 shuffle-item" data-groups="[&quot;branding&quot;]" style="box-shadow: 0px 1px 3px #909999; margin: 20px; padding: 15px;">
-    <div class="position-relative rounded hover-wrapper" style="">
+  <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[&quot;branding&quot;]" style="box-shadow: 0px 1px 3px #909999; margin: 0px; padding: 15px;">
+    <div class="position-relative rounded hover-wrapper">
 
 
-      <?php 
-      if(isset($_GET['search'])){
-        ?>
+      
+      @if(isset($_GET['search']))
+        
         <a class="" href="{{$s->id}}">
           <img src="../storage/store_image/{{$s->pic}}" alt="store-image" class="img-fluid rounded w-100 d-block">
 
-          <?php
-        }else{
+      
+        @else
 
-          ?>
+        
           <a class="" href="store/{{$s->id}}">
             <img src="storage/store_image/{{$s->pic}}" alt="store-image" class="img-fluid rounded w-100 d-block">
           </a>
-          <?php
-        }
-        ?>
+          @endif
 
 
 
@@ -259,32 +227,7 @@
 <!-- /contact -->
 
 <!-- footer -->
-<footer class="bg-dark footer-section">
-  <div class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h5 class="text-light">Email</h5>
-          <p class="text-white paragraph-lg font-secondary">steve.fruits@email.com</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Phone</h5>
-          <p class="text-white paragraph-lg font-secondary">+880 2544 658 256</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Address</h5>
-          <p class="text-white paragraph-lg font-secondary">125/A, CA Commercial Area, California, USA</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="border-top text-center border-dark py-5">
-    <p class="mb-0 text-light">Copyright ©<script>
-      var CurrentYear = new Date().getFullYear()
-      document.write(CurrentYear)
-    </script></p>
-  </div>
-</footer>
+@include('layouts.footer')
 <!-- /footer -->
 
 <!-- jQuery -->
