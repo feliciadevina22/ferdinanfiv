@@ -106,7 +106,6 @@ class adminStoreController extends Controller
             'pageid'=>"store",
             'store'=>Store::find($id)
         );
-
         return view('admin.storeEdit')->with($data);
     }
 

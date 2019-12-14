@@ -74,7 +74,7 @@
       <li class="mb-3"><a class="text-white" href="https://facebook.com/ferdinanlinardi" target="_blank"><i class="ti-line"></i></a></li>
       <li class="mb-3"><a class="text-white" href="https://instagram.com/ferdinanfiv" target="_blank"><i class="ti-instagram"></i></a></li>
       <!-- <li class="mb-3"><a class="text-white" href="#"><i class="ti-dribbble"></i></a></li> -->
-      <li class="mb-3"><a class="text-white" href="https://twitter.com/ferdinanfiv" target="_blank"><i class="ti-email"></i></a></li>
+      <li class="mb-3"><a class="text-white" href="mailto:ferdinanfiv@gmail.com" target="_blank"><i class="ti-email"></i></a></li>
     </ul>
     <!-- /social icon -->
   </section>

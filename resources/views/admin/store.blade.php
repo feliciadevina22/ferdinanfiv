@@ -248,9 +248,9 @@
                     </center>
                     <div>
                       @if(!isset($_GET['search']))
-                      <a href="../adminstore/{{$s->id}}/edit" class="btn btn-primary" role="button">Edit</a>
-                      @else
                       <a href="adminstore/{{$s->id}}/edit" class="btn btn-primary" role="button">Edit</a>
+                      @else
+                      <a href="../adminstore/{{$s->id}}/edit" class="btn btn-primary" role="button">Edit</a>
                       @endif
 
                        {!! Form::open(['action' => ['adminStoreController@destroy', 
