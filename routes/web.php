@@ -16,6 +16,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('store/search','StoresController@search');
+Route::get('portofolio/search','PortofoliosController@search');
+Route::get('adminportofolio/search','adminPortofolioController@search');
+Route::get('adminstore/search','adminStoreController@search');
 
 Route::resource('admin','adminDashboardController');
 // Route::resource('admin/portofolio','adminPortofolioController');
@@ -27,8 +31,7 @@ Route::get('/admincontact', [
     'uses' => 'ContactsController@indexadmin'
 ]);
 
-Route::get('store/search','StoresController@search');
-Route::get('portofolio/search','PortofoliosController@search');
+
 
 
 Route::resource('portofolio','PortofoliosController');

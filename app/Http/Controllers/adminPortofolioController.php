@@ -157,4 +157,15 @@ class adminPortofolioController extends Controller
         $portofolio->delete();
         return redirect('/adminportofolio');
     }
+
+    public function search(request $request){
+        $search = $request->input('search');
+       
+        $portofolio =  Portofolio::where('title','LIKE','%'.$search.'%')->get();
+        
+        
+
+        // var_dump($store);
+        return view('admin.portofolio')->with('portofolio',$portofolio);
+    }
 }

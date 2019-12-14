@@ -30,183 +30,155 @@
 <body>
   
 
-<header class="navigation fixed-top">
-  <nav class="navbar navbar-expand-lg navbar-dark">
-    <a class="navbar-brand font-tertiary h3" href="{{url('/')}}"><h3 class="font-tertiary text-white" style="margin-top: 20px">FERDINANFIV</h3></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
-      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+  @extends('layouts.header')
 
-    <div class="collapse navbar-collapse text-center" id="navigation">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{url('/')}}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('about')}}">about</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('store')}}">Store</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('portofolio')}}">Portofolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url('contact')}}">Contact</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</header>
-
-<!-- hero area -->
-<section class="hero-area bg-primary" id="parallax">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-11 mx-auto">
-        <h1 class="text-white font-tertiary">Hi! I’m <br> Ferdinan <br> I'm a Graphic Designer and Illustrator
-        </h1>
+  <!-- hero area -->
+  <section class="hero-area bg-primary" id="parallax">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-11 mx-auto">
+          <h1 class="text-white font-tertiary">Hi! I’m <br> Ferdinan <br> I'm a Graphic Designer and Illustrator
+          </h1>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="layer-bg w-100">
-    <img class="img-fluid w-100" src="images/illustrations/leaf-bg.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l2">
-    <img src="images/illustrations/dots-cyan.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l3">
-    <img src="images/illustrations/leaf-orange.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l4">
-    <img src="images/illustrations/dots-orange.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l5">
-    <img src="images/illustrations/leaf-yellow.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l6">
-    <img src="images/illustrations/leaf-cyan.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l7">
-    <img src="images/illustrations/dots-group-orange.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l8">
-    <img src="images/illustrations/leaf-pink-round.png" alt="bg-shape">
-  </div>
-  <div class="layer" id="l9">
-    <img src="images/illustrations/leaf-cyan-2.png" alt="bg-shape">
-  </div>
-  <!-- social icon -->
-  <ul class="list-unstyled ml-5 mt-3 position-relative zindex-1">
-    <li class="mb-3"><a class="text-white" href="https://facebook.com/ferdinanlinardi" target="_blank"><i class="ti-line"></i></a></li>
-    <li class="mb-3"><a class="text-white" href="https://instagram.com/ferdinanfiv" target="_blank"><i class="ti-instagram"></i></a></li>
-    <!-- <li class="mb-3"><a class="text-white" href="#"><i class="ti-dribbble"></i></a></li> -->
-    <li class="mb-3"><a class="text-white" href="https://twitter.com/ferdinanfiv" target="_blank"><i class="ti-email"></i></a></li>
-  </ul>
-  <!-- /social icon -->
-</section>
-<!-- /hero area -->
+    <div class="layer-bg w-100">
+      <img class="img-fluid w-100" src="images/illustrations/leaf-bg.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l2">
+      <img src="images/illustrations/dots-cyan.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l3">
+      <img src="images/illustrations/leaf-orange.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l4">
+      <img src="images/illustrations/dots-orange.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l5">
+      <img src="images/illustrations/leaf-yellow.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l6">
+      <img src="images/illustrations/leaf-cyan.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l7">
+      <img src="images/illustrations/dots-group-orange.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l8">
+      <img src="images/illustrations/leaf-pink-round.png" alt="bg-shape">
+    </div>
+    <div class="layer" id="l9">
+      <img src="images/illustrations/leaf-cyan-2.png" alt="bg-shape">
+    </div>
+    <!-- social icon -->
+    <ul class="list-unstyled ml-5 mt-3 position-relative zindex-1">
+      <li class="mb-3"><a class="text-white" href="https://facebook.com/ferdinanlinardi" target="_blank"><i class="ti-line"></i></a></li>
+      <li class="mb-3"><a class="text-white" href="https://instagram.com/ferdinanfiv" target="_blank"><i class="ti-instagram"></i></a></li>
+      <!-- <li class="mb-3"><a class="text-white" href="#"><i class="ti-dribbble"></i></a></li> -->
+      <li class="mb-3"><a class="text-white" href="https://twitter.com/ferdinanfiv" target="_blank"><i class="ti-email"></i></a></li>
+    </ul>
+    <!-- /social icon -->
+  </section>
+  <!-- /hero area -->
 
-<!-- about -->
-<section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-10 mx-auto text-center">
-        <p class="font-secondary paragraph-lg text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-          do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
+  <!-- about -->
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 mx-auto text-center">
+          <p class="font-secondary paragraph-lg text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+            do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
           in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-        <a href="about.html" class="btn btn-transparent">know more</a>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- /about -->
-
-<!-- skills -->
-<section class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-title">Skills</h2>
-      </div>
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
-        <div class="card shadow text-center">
-          <div class="position-relative rounded-top progress-wrapper" data-color="#fdb157">
-            <div class="wave" data-progress="90%"></div>
-          </div>
-          <div class="card-footer bg-white">
-            <h4 class="card-title">Illustration (90%)</h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
-        <div class="card shadow text-center">
-          <div class="position-relative rounded-top progress-wrapper" data-color="#9473e6">
-            <div class="wave" data-progress="60%"></div>
-          </div>
-          <div class="card-footer bg-white">
-            <h4 class="card-title">Logo Design (60%)</h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
-        <div class="card shadow text-center">
-          <div class="position-relative rounded-top progress-wrapper" data-color="#bdecf6">
-            <div class="wave" data-progress="80%"></div>
-          </div>
-          <div class="card-footer bg-white">
-            <h4 class="card-title">Photoshop (80%)</h4>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
-        <div class="card shadow text-center">
-          <div class="position-relative rounded-top progress-wrapper" data-color="#ffbcaa">
-            <div class="wave" data-progress="70%"></div>
-          </div>
-          <div class="card-footer bg-white">
-            <h4 class="card-title"> Graphic Design (70%)</h4>
-          </div>
+          <a href="about.html" class="btn btn-transparent">know more</a>
         </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- /skills -->
+  </section>
+  <!-- /about -->
 
-<!-- experience -->
-<section class="section">
-  <div class="container">
-    <div class="row justify-content-around">
-      <div class="col-lg-12 text-center">
-        <h2 class="section-title">Experience</h2>
-      </div>
-      <div class="col-lg-3 col-md-4 text-center">
-        <img src="images/experience/icon-1.png" alt="icon">
-        <p class="mb-0">Jan 2007 - Feb 2009</p>
-        <h4>Water color artist</h4>
-        <h6 class="text-light"></h6>
-      </div>
-      <div class="col-lg-3 col-md-4 text-center">
-        <img src="images/experience/icon-2.png" alt="icon">
-        <p class="mb-0">Mar 2009 - Aug 2014</p>
-        <h4>Graphic Designer</h4>
-        <h6 class="text-light"></h6>
-      </div>
-      <div class="col-lg-3 col-md-4 text-center">
-        <img src="images/experience/icon-3.png" alt="icon">
-        <p class="mb-0">Sep 2014 - Present</p>
-        <h4>Illustrator</h4>
-        <h6 class="text-light"></h6>
+  <!-- skills -->
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-title">Skills</h2>
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
+          <div class="card shadow text-center">
+            <div class="position-relative rounded-top progress-wrapper" data-color="#fdb157">
+              <div class="wave" data-progress="90%"></div>
+            </div>
+            <div class="card-footer bg-white">
+              <h4 class="card-title">Illustration (90%)</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
+          <div class="card shadow text-center">
+            <div class="position-relative rounded-top progress-wrapper" data-color="#9473e6">
+              <div class="wave" data-progress="60%"></div>
+            </div>
+            <div class="card-footer bg-white">
+              <h4 class="card-title">Logo Design (60%)</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
+          <div class="card shadow text-center">
+            <div class="position-relative rounded-top progress-wrapper" data-color="#bdecf6">
+              <div class="wave" data-progress="80%"></div>
+            </div>
+            <div class="card-footer bg-white">
+              <h4 class="card-title">Photoshop (80%)</h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-sm-6 mb-4 mb-lg-0">
+          <div class="card shadow text-center">
+            <div class="position-relative rounded-top progress-wrapper" data-color="#ffbcaa">
+              <div class="wave" data-progress="70%"></div>
+            </div>
+            <div class="card-footer bg-white">
+              <h4 class="card-title"> Graphic Design (70%)</h4>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-<!-- ./experience -->
+  </section>
+  <!-- /skills -->
 
-<!-- education -->
+  <!-- experience -->
+  <section class="section">
+    <div class="container">
+      <div class="row justify-content-around">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-title">Experience</h2>
+        </div>
+        <div class="col-lg-3 col-md-4 text-center">
+          <img src="images/experience/icon-1.png" alt="icon">
+          <p class="mb-0">Jan 2007 - Feb 2009</p>
+          <h4>Water color artist</h4>
+          <h6 class="text-light"></h6>
+        </div>
+        <div class="col-lg-3 col-md-4 text-center">
+          <img src="images/experience/icon-2.png" alt="icon">
+          <p class="mb-0">Mar 2009 - Aug 2014</p>
+          <h4>Graphic Designer</h4>
+          <h6 class="text-light"></h6>
+        </div>
+        <div class="col-lg-3 col-md-4 text-center">
+          <img src="images/experience/icon-3.png" alt="icon">
+          <p class="mb-0">Sep 2014 - Present</p>
+          <h4>Illustrator</h4>
+          <h6 class="text-light"></h6>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ./experience -->
+
+  <!-- education -->
 <!-- <section class="section position-relative">
   <div class="container">
     <div class="row">
@@ -386,10 +358,10 @@
           <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
           <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation
-              ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit
+          in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
           <img class="img-fluid rounded-circle mb-4 d-inline-block" src="images/testimonial/client-1.png"
-            alt="client-image">
+          alt="client-image">
           <h4 class="text-white">Jesica Gomez</h4>
           <h6 class="text-light mb-4">CEO, Funder</h6>
         </div>
@@ -399,11 +371,11 @@
           <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation
               ullamco
-              laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in
+            laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in
             voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur.</p>
+          esse cillum dolore eu fugiat nulla pariatur.</p>
           <img class="img-fluid rounded-circle mb-4 d-inline-block" src="images/testimonial/client-1.png"
-            alt="client-image">
+          alt="client-image">
           <h4 class="text-white">Jesica Gomez</h4>
           <h6 class="text-light mb-4">CEO, Funder</h6>
         </div>
@@ -413,11 +385,11 @@
           <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation
               ullamco
-              laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in
+            laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in
             voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur.</p>
+          esse cillum dolore eu fugiat nulla pariatur.</p>
           <img class="img-fluid rounded-circle mb-4 d-inline-block" src="images/testimonial/client-1.png"
-            alt="client-image">
+          alt="client-image">
           <h4 class="text-white">Jesica Gomez</h4>
           <h6 class="text-light mb-4">CEO, Funder</h6>
         </div>
@@ -533,7 +505,7 @@
             </div>
             <div class="col-12">
               <textarea name="message" id="message" class="form-control px-0 mb-4"
-                placeholder="Type Message Here"></textarea>
+              placeholder="Type Message Here"></textarea>
             </div>
             <div class="col-lg-6 col-10 mx-auto">
               <button class="btn btn-primary w-100">send</button>
@@ -547,32 +519,7 @@
 <!-- /contact -->
 
 <!-- footer -->
-<footer class="bg-dark footer-section">
-  <div class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <h5 class="text-light">Email</h5>
-          <p class="text-white paragraph-lg font-secondary">ferdinanfiv@gmail.com</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Phone</h5>
-          <p class="text-white paragraph-lg font-secondary">+62 8351 6516 6415</p>
-        </div>
-        <div class="col-md-4">
-          <h5 class="text-light">Address</h5>
-          <p class="text-white paragraph-lg font-secondary">Surabaya, East Java, Indonesia</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="border-top text-center border-dark py-5">
-    <p class="mb-0 text-light">Copyright ©<script>
-        var CurrentYear = new Date().getFullYear()
-        document.write(CurrentYear)
-      </script></p>
-  </div>
-</footer>
+@include('layouts.footer')
 <!-- /footer -->
 
 <!-- jQuery -->
