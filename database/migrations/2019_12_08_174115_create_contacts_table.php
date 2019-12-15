@@ -18,6 +18,9 @@ class CreateContactsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->text('message');
+            $table->boolean('isEmail');
+            $table->boolean('isDeleted');
+            $table->text('adminmessage')->nullable();
             $table->timestamps();
         });
     }

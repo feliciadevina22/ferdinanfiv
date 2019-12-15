@@ -163,8 +163,8 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-2 text-gray-800">CONTACT</h1>
-          <p class="mb-4">Contact for people</a>.</p>
+          <h1 class="h3 mb-2 text-gray-800">Feedbacks</h1>
+          <p class="mb-4">Feedbacks from people</a>.</p>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
@@ -178,36 +178,124 @@
                     <tr>
                       <th width=3%>No</th>
                       <th width=17%>Name</th>
-                      <th width=20%>email</th>
-                      <th width=42%>Message</th>
-                      <th width=18%><a href="" class="btn btn-primary" role="button">Send Email</a>
-                        {!! Form::open(['action' => ['ContactsController@destroy',
-                        $contact[0]->id],'method' => 'POST',
-                        'class' => 'float-right']) !!}
-                        {{Form::hidden('_method', 'DELETE')}}
-                        {{Form::submit("Delete", ['class'=>'btn btn-danger'])}}
-                        {!! Form::close() !!}</th>
+                      <th width=20%>Email</th>
+                      <th width=40%>Message</th>
+                      <th width=20% colspan="2">Action</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <php $number = 1; ?>
+                    <?php $number = 1; ?>
                     @if(count($contact)>0)
                     @foreach ($contact as $c)
+                    @if($c->isEmail === 0 && $c->isDeleted ===0)
                     <tr>
-                      <td><php echo $number, $number+1; ?></td>
-                      <td>Felicia</td>
-                      <td>fsiswanto@@</td>
-                      <td>Bisa ka?</td>
-                      <td><a href="" class="btn btn-primary" role="button">Send Email</a>
+                      <td>
+                        <center><?php echo $number;
+                                $number++; ?></center>
+                      </td>
+                      <td>{{$c->name}}</td>
+                      <td>{{$c->email}}</td>
+                      <td>{{$c->message}}</td>
+                      <td><a href="contact/{{$c->id}}/edit" class="btn btn-primary" role="button">Send Email</a>
+                      </td>
+                      <td>
+                        {!! Form::open(['action' => ['ContactsController@update',
+                        $c->id],'method' => 'PUT',
+                        'class' => 'float-left']) !!}
+
+                        @if ($message = Session::get('success'))
+                        <div class="alert alert-success alert-block">
+                          <button type="button" class="close" data-dismiss="alert">×</button>
+                          <strong>{{ $message }}</strong>
+                        </div>
+                        @endif
+
+                        {{ Form::hidden('email', $c->email) }}
+                        {{ Form::hidden('name', $c->name) }}
+                        {{ Form::hidden('isEmail', '0') }}
+                        {{ Form::hidden('isDeleted', '1') }}
+                        {{ Form::hidden('message', $c->message) }}
+                        {{ Form::hidden('adminmessage', $c->adminmessage) }}
+
+                        {{Form::submit("Delete", ['class'=>'btn btn-danger'])}}
+                        {!! Form::close() !!}</td>
+                    </tr>
+                    @endif
+                    @endforeach
+                    @endif
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <!-- DataTales Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">History</h6>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th width=3%>No</th>
+                      <th width=17%>Name</th>
+                      <th width=20%>Email</th>
+                      <th width=21%>Message</th>
+                      <th width=21%>Reply Message</th>
+                      <th width=18% colspan="2">Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php $number = 1; ?>
+                    @if(count($contact)>0)
+                    @foreach ($contact as $c)
+
+                    @if($c->isEmail === 1)
+                    <tr>
+                      <td>
+                        <center><?php echo $number;
+                                $number++; ?></center>
+                      </td>
+                      <td>{{$c->name}}</td>
+                      <td>{{$c->email}}</td>
+                      <td>{{$c->message}}</td>
+                      <td>{{$c->adminmessage}}</td>
+                      <td>You have answer this feedback </td>
+                      <td>
                         {!! Form::open(['action' => ['ContactsController@destroy',
                         $c->id],'method' => 'POST',
-                        'class' => 'float-right']) !!}
+                        'class' => 'float-left']) !!}
                         {{Form::hidden('_method', 'DELETE')}}
                         {{Form::submit("Delete", ['class'=>'btn btn-danger'])}}
                         {!! Form::close() !!}</td>
                     </tr>
-            @endforeach
-            @endif
+                    @endif
+
+                    @if($c->isDeleted === 1)
+                    <tr>
+                      <td>
+                        <center><?php echo $number;
+                                $number++; ?></center>
+                      </td>
+                      <td>{{$c->name}}</td>
+                      <td>{{$c->email}}</td>
+                      <td>{{$c->message}}</td>
+                      <td style="color: red">No Reply</td>
+                      <td style="color: red">This feedback has been deleted</td>
+                      <td>
+                        {!! Form::open(['action' => ['ContactsController@destroy',
+                        $c->id],'method' => 'POST',
+                        'class' => 'float-left']) !!}
+                        {{Form::hidden('_method', 'DELETE')}}
+                        {{Form::submit("Delete", ['class'=>'btn btn-danger'])}}
+                        {!! Form::close() !!}</td>
+                    </tr>
+                    @endif
+
+                    @endforeach
+                    @endif
                   </tbody>
                 </table>
               </div>

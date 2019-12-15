@@ -32,6 +32,9 @@ Route::get('/admincontact', [
 ]);
 
 
+Route::get('store/search','StoresController@search');
+Route::get('portofolio/search','PortofoliosController@search');
+
 
 
 Route::resource('portofolio','PortofoliosController');
