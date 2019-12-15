@@ -29,15 +29,9 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
   <script type="text/javascript">
     $(document).ready(function() {
-    $('table.display').DataTable();
+    $('table.dataTable').DataTable();
 } );
   </script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-    $('table.display').DataTable();
-} );
-  </script>
-
 
 
 </head>
@@ -218,7 +212,7 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" class="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                       <th width=3%>No</th>
