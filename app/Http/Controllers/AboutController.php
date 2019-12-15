@@ -28,12 +28,34 @@ class AboutController extends Controller
 
     public function create()
     {
-        
+        return view("admin.aboutadd");
     }
 
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'about' => 'required',
+            'picture' => 'image|required|max:1999'
+        ]);
+    
+            // Membuat object dari Model
+          $about = new About(); 
+          $about->about = $request->input('about');
+    
+          if($request->hasFile('picture')){
+            $fileNameWithExt = $request->file('picture')->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $filenameSimpan = $filename.'_'.time().'.'.$extension;
+            $path = $request->file('picture')->storeAs('public/about_image', $filenameSimpan);
+            $about->pic = $request->input('picture');
+        }
+        $about->pic = $filenameSimpan;
+    
+    
+        $about->save();
+    
+        return redirect('adminprofile')->with('success', 'Data telah disimpan.');
     }
 
     public function edit($id)
@@ -50,7 +72,7 @@ class AboutController extends Controller
     {
         $this->validate($request, [
             'about' => 'required',
-            'picture' => 'required'
+            'picture' => ''
         ]);
 
         // Membuat object dari Model Post

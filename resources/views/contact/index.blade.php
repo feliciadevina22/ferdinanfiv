@@ -111,7 +111,6 @@
                 {!! Form::close() !!}
                 <!-- <button class="btn btn-primary w-100">send</button> -->
               </div>
-              </form>
           </div>
         </div>
       </div>
