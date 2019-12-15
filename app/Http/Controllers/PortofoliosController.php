@@ -126,6 +126,7 @@ class PortofoliosController extends Controller
     public function destroy($id){
         $portofolio = Portofolio::find($id); 
         $portofolio->delete();
+        
         //return redirect('/portofolio')->with('success', 'Data telah dihapus.'); 
     }
 

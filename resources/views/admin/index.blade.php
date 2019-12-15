@@ -130,7 +130,12 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
-
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="{{url('/')}}" data-toggle="" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+          <!-- <i class="fas fa-fw fa-folder"></i> -->
+          <span>Go to Website</span>
+        </a>
+      </li>
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         @guest

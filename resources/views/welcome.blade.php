@@ -85,10 +85,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-10 mx-auto text-center">
-          <p class="font-secondary paragraph-lg text-dark">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
-            do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-          in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <p class="font-secondary paragraph-lg text-dark">I'm a freelance graphic designer and illustrator. </p>
           <a href="about.html" class="btn btn-transparent">know more</a>
         </div>
       </div>
@@ -346,15 +343,15 @@
 <!-- /portfolio -->
 
 <!-- testimonial -->
-<section class="section bg-primary position-relative testimonial-bg-shapes">
+<!-- <section class="section bg-primary position-relative testimonial-bg-shapes">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
         <h2 class="section-title text-white mb-5">Testimonials</h2>
       </div>
-      <div class="col-lg-10 mx-auto testimonial-slider">
+      <div class="col-lg-10 mx-auto testimonial-slider"> -->
         <!-- slider-item -->
-        <div class="text-center testimonial-content">
+        <!-- <div class="text-center testimonial-content">
           <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
           <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation
@@ -364,9 +361,9 @@
           alt="client-image">
           <h4 class="text-white">Jesica Gomez</h4>
           <h6 class="text-light mb-4">CEO, Funder</h6>
-        </div>
+        </div> -->
         <!-- slider-item -->
-        <div class="text-center testimonial-content">
+        <!-- <div class="text-center testimonial-content">
           <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
           <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation
@@ -378,9 +375,9 @@
           alt="client-image">
           <h4 class="text-white">Jesica Gomez</h4>
           <h6 class="text-light mb-4">CEO, Funder</h6>
-        </div>
+        </div> -->
         <!-- slider-item -->
-        <div class="text-center testimonial-content">
+        <!-- <div class="text-center testimonial-content">
           <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
           <p class="text-white mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation
@@ -395,15 +392,15 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- bg shapes -->
-  <img src="images/backgrounds/map.png" alt="map" class="img-fluid bg-map">
+  <!-- <img src="images/backgrounds/map.png" alt="map" class="img-fluid bg-map">
   <img src="images/illustrations/dots-group-v.png" alt="bg-shape" class="img-fluid bg-shape-1">
   <img src="images/illustrations/leaf-orange.png" alt="bg-shape" class="img-fluid bg-shape-2">
   <img src="images/illustrations/dots-group-sm.png" alt="bg-shape" class="img-fluid bg-shape-3">
   <img src="images/illustrations/leaf-pink-round.png" alt="bg-shape" class="img-fluid bg-shape-4">
   <img src="images/illustrations/leaf-cyan.png" alt="bg-shape" class="img-fluid bg-shape-5">
-</section>
+</section> -->
 <!-- /testimonial -->
 
 <!-- client logo slider -->
