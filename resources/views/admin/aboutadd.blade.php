@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>FERDINANFIV Admin- Dashboard</title>
+  <title>FERDINANFIV Admin- Profile</title>
 
   <!-- Custom fonts for this template-->
   <!-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css"> -->
@@ -62,7 +62,7 @@
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item active">
+        <li class="nav-item ">
           <a class="nav-link collapsed" href="{{url('adminportofolio')}}" data-toggle="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <!-- <i class="fas fa-fw fa-cog"></i> -->
             <span>Portofolio</span>
@@ -102,7 +102,7 @@
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link collapsed" href="{{url('adminprofile')}}" data-toggle="" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <!-- <i class="fas fa-fw fa-folder"></i> -->
           <span>Profile</span>
