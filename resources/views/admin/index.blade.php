@@ -51,22 +51,22 @@
         <a class="nav-link" href="{{url('admin')}}">
           <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
           <span>Dashboard</span></a>
-      </li>
+        </li>
 
-      <!-- Divider -->
-      <!-- <hr class="sidebar-divider"> -->
+        <!-- Divider -->
+        <!-- <hr class="sidebar-divider"> -->
 
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        <!-- Interface -->
-      </div>
+        <!-- Heading -->
+        <div class="sidebar-heading">
+          <!-- Interface -->
+        </div>
 
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="{{url('adminportofolio')}}" data-toggle="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <!-- <i class="fas fa-fw fa-cog"></i> -->
-          <span>Portofolio</span>
-        </a>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="{{url('adminportofolio')}}" data-toggle="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <!-- <i class="fas fa-fw fa-cog"></i> -->
+            <span>Portofolio</span>
+          </a>
         <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
@@ -94,7 +94,7 @@
       </li>
 
       <!-- Divider -->
-     
+
 
       <!-- Heading -->
       <div class="sidebar-heading">
@@ -130,7 +130,7 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
-
+      
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
         @guest
@@ -140,38 +140,38 @@
         
         @else
         <li class="nav-item dropdown">
-            <button style="color: black" href="{{ route('logout') }}"
-            onclick="event.preventDefault();
-            document.getElementById('logout-form').submit();">
-            {{ __('Logout') }}
-          </button>
+          <button style="color: black" href="{{ route('logout') }}"
+          onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();">
+          {{ __('Logout') }}
+        </button>
 
-          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-          </form>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          @csrf
+        </form>
         
       </li>
       @endguest
-      </div>
+    </div>
 
-    </ul>
-    <!-- End of Sidebar -->
+  </ul>
+  <!-- End of Sidebar -->
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" style="margin-left: 15%;" class="d-flex flex-column">
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" style="margin-left: 15%;" class="d-flex flex-column">
 
-      <!-- Main Content -->
-      <div id="content">
+    <!-- Main Content -->
+    <div id="content">
 
-        <!-- Topbar -->
-        <nav class="navbar navbar-light bg-white  mb-4 static-top shadow">
+      <!-- Topbar -->
+      <nav class="navbar navbar-light bg-white  mb-4 static-top shadow">
 
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <!-- <i class="fa fa-bars"></i> -->
-          </button>
+        <!-- Sidebar Toggle (Topbar) -->
+        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+          <!-- <i class="fa fa-bars"></i> -->
+        </button>
 
-          <!-- Topbar Search -->
+        <!-- Topbar Search -->
           <!-- <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
               <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -191,13 +191,15 @@
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
-
+          <h1>WELCOME TO FERDINANFIV ADMIN PAGE</h1><br>
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
             <!-- <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a> -->
           </div>
-
+          
+          
+          
           <!-- Content Row -->
           <div class="row">
 
@@ -207,11 +209,12 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                      <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Your portfolio :</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">11</div>
                     </div>
                     <div class="col-auto">
                       <!-- <i class="fas fa-calendar fa-2x text-gray-300"></i> -->
+
                     </div>
                   </div>
                 </div>
@@ -224,8 +227,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1"></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                      <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Your Store Item :</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">10</div>
                     </div>
                     <div class="col-auto">
                       <!-- <i class="fas fa-dollar-sign fa-2x text-gray-300"></i> -->
@@ -241,10 +244,10 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1"></div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Your Contact :</div>
                       <div class="row no-gutters align-items-center">
                         <div class="col-auto">
-                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"></div>
+                          <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">5</div>
                         </div>
                         <div class="col">
                           <!-- <div class="progress progress-sm mr-2">
@@ -267,8 +270,8 @@
                 <div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1"></div>
-                      <div class="h5 mb-0 font-weight-bold text-gray-800"></div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Your History :</div>
+                      <div class="h5 mb-0 font-weight-bold text-gray-800">4</div>
                     </div>
                     <div class="col-auto">
                       <!-- <i class="fas fa-comments fa-2x text-gray-300"></i> -->
@@ -278,70 +281,15 @@
               </div>
             </div>
           </div>
-
+          <br><br><br>
           <!-- Content Row -->
 
-          <div class="row">
-
-            <!-- Area Chart -->
-            <div class="col-xl-8 col-lg-7">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary"></h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-area">
-                    <canvas id="myAreaChart"></canvas>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Pie Chart -->
-            <div class="col-xl-4 col-lg-5">
-              <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                  <h6 class="m-0 font-weight-bold text-primary"></h6>
-                  <div class="dropdown no-arrow">
-                    <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                      <div class="dropdown-header">Dropdown Header:</div>
-                      <a class="dropdown-item" href="#">Action</a>
-                      <a class="dropdown-item" href="#">Another action</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                  </div>
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                  <div class="chart-pie pt-4 pb-2">
-                    <canvas id="myPieChart"></canvas>
-                  </div>
-                  <div class="mt-4 text-center small">
-                    
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <h3>
+            <a class="nav-link collapsed" href="{{url('/')}}" data-toggle="" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+              <!-- <i class="fas fa-fw fa-folder"></i> -->
+              <span>Go to FERDINANFIV Website -></span>
+            </a>
+          </h3>
 
           
 

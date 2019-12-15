@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use App\Models\Store;
 
 class adminStoreController extends Controller
@@ -161,11 +162,12 @@ class adminStoreController extends Controller
     public function destroy($id)
     {
         $store = Store::find($id);
-        $path = 'storage/store_image/'.$store->pic;
+        $path = '/storage/store_image/'.$store->pic;
+        //var_dump(public_path().$path);
+        File::delete(public_path().$path);
         
-        unlink($path);
         
-        $store->delete();
+         $store->delete();
         return redirect('/adminstore');
     }
 

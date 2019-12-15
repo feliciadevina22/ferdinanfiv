@@ -33,22 +33,21 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" style="position: fixed" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
+      <br>
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="admin">
         <div class="sidebar-brand-icon rotate-n-15">
           <!-- <i class="fas fa-laugh-wink"></i> -->
         </div>
         <div class="sidebar-brand-text mx-3">FERDINANFIV Admin</div>
       </a>
-      <center>
-        <img src="https://image.freepik.com/free-photo/scottish-fold-cat-blue-surface_23-2148181678.jpg" width="100px" class="rounded-circle">
-      </center>
+      
       
       <br>
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
+      <li class="nav-item ">
         <a class="nav-link" href="{{url('admin')}}">
           <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
           <span>Dashboard</span></a>
@@ -63,7 +62,7 @@
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item ">
+        <li class="nav-item">
           <a class="nav-link collapsed" href="{{url('adminportofolio')}}" data-toggle="" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <!-- <i class="fas fa-fw fa-cog"></i> -->
             <span>Portofolio</span>
@@ -79,7 +78,7 @@
 
       <!-- Nav Item - Utilities Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="{{url('adminstore')}}" data-toggle="" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <!-- <i class="fas fa-fw fa-wrench"></i> -->
           <span>Store</span>
         </a>
@@ -131,14 +130,32 @@
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
-
+      
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
-        <button>Log Out</button>
-      </div>
+        @guest
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+        </li>
+        
+        @else
+        <li class="nav-item dropdown">
+          <button style="color: black" href="{{ route('logout') }}"
+          onclick="event.preventDefault();
+          document.getElementById('logout-form').submit();">
+          {{ __('Logout') }}
+        </button>
 
-    </ul>
-    <!-- End of Sidebar -->
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          @csrf
+        </form>
+        
+      </li>
+      @endguest
+    </div>
+
+  </ul>
+  <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" style="margin-left: 15%;" class="d-flex flex-column">

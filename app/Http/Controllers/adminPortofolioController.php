@@ -7,6 +7,7 @@ use App\Models\Portofolio;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class adminPortofolioController extends Controller
 {
@@ -150,9 +151,9 @@ class adminPortofolioController extends Controller
     public function destroy($id)
     {
         $portofolio = Portofolio::find($id);
-        $path = 'storage/portofolio_image/'.$portofolio->pic;
-        
-        unlink($path);
+        $path = '/storage/portofolio_image/'.$portofolio->pic;
+        File::delete(public_path().$path);
+        // unlink($path);
         
         $portofolio->delete();
         return redirect('/adminportofolio');
