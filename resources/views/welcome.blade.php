@@ -86,7 +86,7 @@
       <div class="row">
         <div class="col-lg-10 mx-auto text-center">
           <p class="font-secondary paragraph-lg text-dark">I'm a freelance graphic designer and illustrator. </p>
-          <a href="about.html" class="btn btn-transparent">know more</a>
+          <a href="about" class="btn btn-transparent">know more</a>
         </div>
       </div>
     </div>
@@ -492,22 +492,57 @@
       </div>
       <div class="col-lg-8 mx-auto">
         <div class="bg-white rounded text-center p-5 shadow-down">
-          <h4 class="mb-80">Contact Form</h4>
-          <form action="#" class="row">
-            <div class="col-md-6">
-              <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4">
+        {!! Form::open([
+            'action' => 'ContactsController@store',
+            'method' => 'POST',
+            'enctype'=>'multipart/form-data'
+            ]) !!}
+
+            <h4 class="mb-80">Contact Form</h4>
+
+            @if ($message = Session::get('success'))
+            <div class="alert alert-success alert-block">
+              <button type="button" class="close" data-dismiss="alert">×</button>
+              <strong>{{ $message }}</strong>
             </div>
-            <div class="col-md-6">
-              <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4">
-            </div>
-            <div class="col-12">
-              <textarea name="message" id="message" class="form-control px-0 mb-4"
-              placeholder="Type Message Here"></textarea>
-            </div>
-            <div class="col-lg-6 col-10 mx-auto">
-              <button class="btn btn-primary w-100">send</button>
-            </div>
-          </form>
+            @endif
+            
+            <class="row">
+              <div class="col-md-6" style="max-width: 100%">
+                {{Form::label('name', 'Name')}}
+                {{Form::text('name', '', 
+              ['class' => 'form-control px-0 mb-4', 
+              'placeholder' => 'Full Name'])}}
+                <!-- <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4"> -->
+              </div>
+
+              <div class="col-md-6" style="max-width: 100%">
+                {{Form::label('email', 'Email')}}
+                {{Form::email('email', '', 
+              ['class' => 'form-control px-0 mb-4', 
+              'placeholder' => 'Email Address'])}}
+
+                <!-- <input type="email" id="email" name="email" placeholder="Email Address" class="form-control px-0 mb-4"> -->
+              </div>
+
+              <div class="col-12">
+                {{Form::label('message', 'Message')}}
+                {{Form::textarea('message', '', 
+              ['class' => 'form-control px-0 mb-4', 
+              'placeholder' => 'Type Message Here'])}}
+
+                <!-- <textarea name="message" id="message" class="form-control px-0 mb-4"placeholder="Type Message Here"></textarea> -->
+              </div>
+
+              {{ Form::hidden('isEmail', '0') }}
+              {{ Form::hidden('isDeleted', '0') }}
+              {{ Form::hidden('adminmessage', '') }}
+
+              <div class="col-lg-6 col-10 mx-auto">
+                {{Form::submit('Save', ['class'=>'btn btn-primary w-100'])}}
+                {!! Form::close() !!}
+                <!-- <button class="btn btn-primary w-100">send</button> -->
+              </div>
         </div>
       </div>
     </div>
