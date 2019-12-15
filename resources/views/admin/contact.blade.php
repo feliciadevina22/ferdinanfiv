@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>FERDINANFIV Admin- PROFILE</title>
+  <title>FERDINANFIV Admin- Contact</title>
 
   <!-- Custom fonts for this template-->
   <!-- <link href="{{ asset('/css/app.css') }}" rel="stylesheet" type="text/css">  -->
