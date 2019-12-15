@@ -259,8 +259,9 @@
                      
                       <br>
                       <h10>{{ str_limit($s->desc, 100) }}</h10>
-                      <br>
-                      <br>
+                      <br><br>
+                      Stock : {{$s->stock}}
+                      <br><br>
                       IDR {{$s->price}}
                     </center>
                     <div>
