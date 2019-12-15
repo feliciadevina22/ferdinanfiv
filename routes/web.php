@@ -27,6 +27,10 @@ Route::resource('adminportofolio','adminPortofolioController');
 Route::resource('adminstore','adminStoreController');
 Route::resource('adminprofile','adminProfileController');
 // Route::resource('admincontact','ContactsController@indexadmin');
+
+
+Route::resource('admincontact','ContactsController@indexadmin');
+
 Route::get('/admincontact', [
     'uses' => 'ContactsController@indexadmin'
 ]);

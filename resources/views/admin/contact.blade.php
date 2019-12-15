@@ -20,6 +20,18 @@
   <!-- Custom styles for this template-->
   <link href="{{ asset('/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
+  <!-- jquery -->
+  <!-- datatables -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+  <script type="text/javascript">
+    $(document).ready(function() {
+    $('table.dataTable').DataTable();
+} );
+  </script>
 
 
 </head>
@@ -256,14 +268,14 @@
             </div>
           </div>
 
-          <!-- DataTales Example -->
-          <div class="card shadow mb-4">
+         <!-- DataTales Example -->
+         <div class="card shadow mb-4">
             <div class="card-header py-3">
-              <h6 class="m-0 font-weight-bold text-primary">History</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Contact</h6>
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <table class="table table-bordered" class="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
                       <th width=3%>No</th>
