@@ -118,7 +118,7 @@
       <img src="../storage/portofolio_image/{{$p->pic}}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
       <div class="hover-overlay">
         <div class="hover-content">
-          <a class="btn btn-light btn-sm" href="portofolio/{{$p->id}}">{{$p->title}}</a>
+          <a class="btn btn-light btn-sm" href="../portofolio/{{$p->id}}">{{$p->title}}</a>
         </div>
       </div>
 

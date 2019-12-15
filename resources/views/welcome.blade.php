@@ -81,7 +81,7 @@
   <!-- /hero area -->
 
   <!-- about -->
-  <section class="section">
+  <!-- <section class="section">
     <div class="container">
       <div class="row">
         <div class="col-lg-10 mx-auto text-center">
@@ -90,7 +90,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- /about -->
 
   <!-- skills -->
